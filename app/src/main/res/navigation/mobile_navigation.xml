@@ -2,4 +2,31 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"/>
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home">
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.easymoney.Fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.example.easymoney.Fragments.InfoFragment"
+        android:label="Info"
+        tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/nav_loan"
+        android:name="com.example.easymoney.Fragments.LoanCalculatorFragment"
+        android:label="Easy Loans"
+        tools:layout="@layout/fragment_loan_calculator" />
+    <fragment
+        android:id="@+id/nav_budget"
+        android:name="com.example.easymoney.Fragments.BudgetFragment"
+        android:label="Easy Budget"
+        tools:layout="@layout/fragment_budget" />
+    <fragment
+        android:id="@+id/nav_credits"
+        android:name="com.example.easymoney.Fragments.CreditsFragment"
+        android:label="Credits"
+        tools:layout="@layout/fragment_credits" />
+</navigation>
