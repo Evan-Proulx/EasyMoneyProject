@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/theme_black"
+    android:id="@+id/budget_fragment_container"
     tools:context=".Fragments.BudgetFragment">
 
 
