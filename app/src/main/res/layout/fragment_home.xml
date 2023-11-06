@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="3"
         android:fontFamily="@font/poppins"
-        android:text="Welcome ot the easy money app. where we help you save money, Easy!"
+        android:text="Welcome ot the easy money app, where we help you save money, Easy!"
         android:textAlignment="center"
         android:textColor="@color/theme_white"
         android:textSize="24sp" />
