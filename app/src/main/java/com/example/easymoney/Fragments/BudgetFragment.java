@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +16,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.easymoney.R;
+import com.example.easymoney.SharedViewModel;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +39,7 @@ public class BudgetFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private SharedViewModel sharedViewModel;
 
     public BudgetFragment() {
         // Required empty public constructor
@@ -65,6 +70,7 @@ public class BudgetFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override
@@ -92,30 +98,32 @@ public class BudgetFragment extends Fragment {
         Button resetBtn = view.findViewById(R.id.resetBtn);
         Button submitBtn = view.findViewById(R.id.submitBtn);
 
-        int housingValue = 0;
-        int insuranceValue = 0;
-        int foodValue = 0;
-        int other1Value = 0;
-        int other2Value = 0;
-        int other3Value = 0;
+        //Set values in edit text to Double
+        Double housingValue = Double.parseDouble(housingEditText.getText().toString());
+        Double insuranceValue = Double.parseDouble(insuranceEditText.getText().toString());
+        Double foodValue = Double.parseDouble(foodEditText.getText().toString());
+        Double other1Value = Double.parseDouble(other1EditText.getText().toString());
+        Double other2Value = Double.parseDouble(other2EditText.getText().toString());
+        Double other3Value =Double.parseDouble(other3EditText.getText().toString());
 
-        int incomeValue = 0;
-        int totalExpenses = 0;
+        Double incomeValue = Double.parseDouble(incomeEditText.getText().toString());
+        Double totalExpenses = housingValue + insuranceValue + foodValue + other1Value + other2Value + other3Value;
 
-        try{
-            housingValue = Integer.parseInt(housingEditText.getText().toString());
-            insuranceValue = Integer.parseInt(insuranceEditText.getText().toString());
-            foodValue = Integer.parseInt(foodEditText.getText().toString());
-            other1Value = Integer.parseInt(other1EditText.getText().toString());
-            other2Value = Integer.parseInt(other2EditText.getText().toString());
-            other3Value = Integer.parseInt(other3EditText.getText().toString());
 
-            incomeValue = Integer.parseInt(incomeEditText.getText().toString());
-            totalExpenses = housingValue + insuranceValue + foodValue + other1Value + other2Value + other3Value;
-        }catch (NumberFormatException e){
-            e.printStackTrace();
-        }
+        //Add edit text values to arraylist
+        ArrayList<Double> values = new ArrayList<>();
+        values.add(incomeValue);
+        values.add(housingValue);
+        values.add(insuranceValue);
+        values.add(foodValue);
+        values.add(other1Value);
+        values.add(other2Value);
+        values.add(other3Value);
+        values.add(totalExpenses);
 
+
+
+        //reset editText text
         resetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,32 +137,19 @@ public class BudgetFragment extends Fragment {
             }
         });
 
-            fm = getActivity().getSupportFragmentManager();
-
-            Bundle bundle = new Bundle();
-            bundle.putInt("1", housingValue);
-            bundle.putInt("2", insuranceValue);
-            bundle.putInt("3", foodValue);
-            bundle.putInt("4", other1Value);
-            bundle.putInt("5", other2Value);
-            bundle.putInt("6", other3Value);
-            bundle.putInt("7", incomeValue);
-            bundle.putInt("8", totalExpenses);
-
-
-            submitBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                  fm.beginTransaction().replace(R.id.info_fragment_container, new BudgetResultFragment()).addToBackStack(null).commit();
-                }
-            });
-
-//        FragmentTransaction fragmentTransaction = requireActivity().getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.replace(R.id.fragment_container, budgetResultFragment);
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
-
+        //calls sendDataToFragment and sets teh values arrayList as an argument
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendDataToFragment(values);
+            }
+        });
 
         return view;
+    }
+
+    //Takes arraylist values and sends it to another fragment
+    private void sendDataToFragment(ArrayList<Double> values){
+        sharedViewModel.setSharedData(values);
     }
 }

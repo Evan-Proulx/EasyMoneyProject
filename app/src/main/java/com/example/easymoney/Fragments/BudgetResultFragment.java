@@ -3,12 +3,16 @@ package com.example.easymoney.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.easymoney.R;
+import com.example.easymoney.SharedViewModel;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +29,7 @@ public class BudgetResultFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private SharedViewModel sharedViewModel;
 
     public BudgetResultFragment() {
         // Required empty public constructor
@@ -55,12 +60,32 @@ public class BudgetResultFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_budget_result, container, false);
+        View view = inflater.inflate(R.layout.fragment_budget_result, container, false);
+
+        ArrayList<Double> receivedData = receiveDataFromFragment();
+        Double incomeValue = receivedData.get(0);
+        Double housingValue = receivedData.get(1);
+        Double insuranceValue = receivedData.get(2);
+        Double foodValue = receivedData.get(3);
+        Double otherValue1 = receivedData.get(4);
+        Double otherValue2 = receivedData.get(5);
+        Double otherValue3 = receivedData.get(6);
+        Double totalExpenses = receivedData.get(7);
+
+
+
+
+
+        return view;
+    }
+    private ArrayList<Double> receiveDataFromFragment(){
+        return sharedViewModel.getSharedData();
     }
 }
