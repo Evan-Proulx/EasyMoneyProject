@@ -2,14 +2,20 @@ package com.example.easymoney.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.easymoney.CustomViewPagerAdapter;
 import com.example.easymoney.R;
 import com.example.easymoney.SharedViewModel;
 
@@ -17,10 +23,10 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link BudgetResultFragment#newInstance} factory method to
+ * Use the {@link BudgetResultHostFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BudgetResultFragment extends Fragment {
+public class BudgetResultHostFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +38,11 @@ public class BudgetResultFragment extends Fragment {
     private String mParam2;
     private SharedViewModel sharedViewModel;
 
-    public BudgetResultFragment() {
+    ViewPager2 viewPager2;
+
+
+
+    public BudgetResultHostFragment() {
         // Required empty public constructor
     }
 
@@ -45,8 +55,8 @@ public class BudgetResultFragment extends Fragment {
      * @return A new instance of fragment BudgetResultFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BudgetResultFragment newInstance(String param1, String param2) {
-        BudgetResultFragment fragment = new BudgetResultFragment();
+    public static BudgetResultHostFragment newInstance(String param1, String param2) {
+        BudgetResultHostFragment fragment = new BudgetResultHostFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -69,32 +79,42 @@ public class BudgetResultFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_budget_result, container, false);
-        Button button = view.findViewById(R.id.resultButton);
 
         ArrayList<Double> receivedData = receiveDataFromFragment();
-        Double incomeValue = receivedData.get(0);
-        Double housingValue = receivedData.get(1);
-        Double insuranceValue = receivedData.get(2);
-        Double foodValue = receivedData.get(3);
-        Double otherValue1 = receivedData.get(4);
-        Double otherValue2 = receivedData.get(5);
-        Double otherValue3 = receivedData.get(6);
-        Double totalExpenses = receivedData.get(7);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.out.println(receivedData);
-             }
-        });
-
-
+        double incomeValue = receivedData.get(0);
+        double housingValue = receivedData.get(1);
+        double insuranceValue = receivedData.get(2);
+        double foodValue = receivedData.get(3);
+        double otherValue1 = receivedData.get(4);
+        double otherValue2 = receivedData.get(5);
+        double otherValue3 = receivedData.get(6);
+        double totalExpenses = receivedData.get(7);
+        double savings = incomeValue-totalExpenses;
+        double housingPercent = findPercent(housingValue,incomeValue);
+        double insurancePercent = findPercent(insuranceValue,incomeValue);
+        double foodPercent = findPercent(foodValue,incomeValue);
+        double otherValue1Percent = findPercent(otherValue1,incomeValue);
+        double otherValue2Percent = findPercent(otherValue2,incomeValue);
+        double otherValue3Percent = findPercent(otherValue3,incomeValue);
 
 
-
+        viewPager2 = view.findViewById(R.id.viewpager);
+        viewPager2.setAdapter(new CustomViewPagerAdapter(getActivity(), incomeValue, housingValue, insuranceValue, foodValue,
+                otherValue1, otherValue2, otherValue3, totalExpenses,
+                savings, housingPercent, insurancePercent,
+                foodPercent, otherValue1Percent));
+        
         return view;
     }
+    //gets data sent from the budgetFragment
     private ArrayList<Double> receiveDataFromFragment(){
         return sharedViewModel.getSharedData();
+    }
+
+    //find percent of two numbers
+    public static double findPercent(double first, double second){
+        if (second != 0){
+            return (first/second) * 100;
+        }else return 0;
     }
 }

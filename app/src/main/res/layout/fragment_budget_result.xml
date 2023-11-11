@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragments.BudgetResultFragment">
+    tools:context=".Fragments.BudgetResultHostFragment">
 
-    <Button
-        android:id="@+id/resultButton"
+    <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Button"/>
+        android:id="@+id/viewpager"/>
 
 
 </LinearLayout>

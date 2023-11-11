@@ -26,7 +26,7 @@
         tools:layout="@layout/fragment_budget" >
         <action
             android:id="@+id/action_nav_budget_to_budgetResultFragment"
-            app:destination="@id/nav_budget_result" />
+            app:destination="@id/nav_budget_result_host" />
     </fragment>
     <fragment
         android:id="@+id/nav_credits"
@@ -34,8 +34,8 @@
         android:label="Credits"
         tools:layout="@layout/fragment_credits" />
     <fragment
-        android:id="@+id/nav_budget_result"
-        android:name="com.example.easymoney.Fragments.BudgetResultFragment"
+        android:id="@+id/nav_budget_result_host"
+        android:name="com.example.easymoney.Fragments.BudgetResultHostFragment"
         android:label="Easy Budget"
         tools:layout="@layout/fragment_budget_result" />
 </navigation>
