@@ -67,8 +67,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/theme_white"
+                    android:textColor="@color/theme_black"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:text="0.00"
                     tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
             </LinearLayout>
@@ -99,6 +101,8 @@
                     android:background="@color/theme_white"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:textColor="@color/theme_black"
+                    android:text="0.00"
                     android:textAlignment="textStart" />
             </LinearLayout>
 
@@ -129,6 +133,8 @@
                     android:background="@color/theme_white"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:textColor="@color/theme_black"
+                    android:text="0.00"
                     android:textAlignment="textStart" />
             </LinearLayout>
 
@@ -158,6 +164,8 @@
                     android:background="@color/theme_white"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:textColor="@color/theme_black"
+                    android:text="0.00"
                     android:textAlignment="textStart" />
             </LinearLayout>
 
@@ -187,6 +195,8 @@
                     android:background="@color/theme_white"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:textColor="@color/theme_black"
+                    android:text="0.00"
                     android:textAlignment="textStart" />
             </LinearLayout>
 
@@ -216,6 +226,8 @@
                     android:background="@color/theme_white"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:textColor="@color/theme_black"
+                    android:text="0.00"
                     android:textAlignment="textStart" />
             </LinearLayout>
 
@@ -245,6 +257,8 @@
                     android:background="@color/theme_white"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:textColor="@color/theme_black"
+                    android:text="0.00"
                     android:textAlignment="textStart" />
             </LinearLayout>
         </LinearLayout>

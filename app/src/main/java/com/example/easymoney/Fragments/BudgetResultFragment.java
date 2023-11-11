@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.easymoney.R;
 import com.example.easymoney.SharedViewModel;
@@ -68,6 +69,7 @@ public class BudgetResultFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_budget_result, container, false);
+        Button button = view.findViewById(R.id.resultButton);
 
         ArrayList<Double> receivedData = receiveDataFromFragment();
         Double incomeValue = receivedData.get(0);
@@ -78,6 +80,13 @@ public class BudgetResultFragment extends Fragment {
         Double otherValue2 = receivedData.get(5);
         Double otherValue3 = receivedData.get(6);
         Double totalExpenses = receivedData.get(7);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println(receivedData);
+             }
+        });
 
 
 

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -98,30 +99,6 @@ public class BudgetFragment extends Fragment {
         Button resetBtn = view.findViewById(R.id.resetBtn);
         Button submitBtn = view.findViewById(R.id.submitBtn);
 
-        //Set values in edit text to Double
-        Double housingValue = Double.parseDouble(housingEditText.getText().toString());
-        Double insuranceValue = Double.parseDouble(insuranceEditText.getText().toString());
-        Double foodValue = Double.parseDouble(foodEditText.getText().toString());
-        Double other1Value = Double.parseDouble(other1EditText.getText().toString());
-        Double other2Value = Double.parseDouble(other2EditText.getText().toString());
-        Double other3Value =Double.parseDouble(other3EditText.getText().toString());
-
-        Double incomeValue = Double.parseDouble(incomeEditText.getText().toString());
-        Double totalExpenses = housingValue + insuranceValue + foodValue + other1Value + other2Value + other3Value;
-
-
-        //Add edit text values to arraylist
-        ArrayList<Double> values = new ArrayList<>();
-        values.add(incomeValue);
-        values.add(housingValue);
-        values.add(insuranceValue);
-        values.add(foodValue);
-        values.add(other1Value);
-        values.add(other2Value);
-        values.add(other3Value);
-        values.add(totalExpenses);
-
-
 
         //reset editText text
         resetBtn.setOnClickListener(new View.OnClickListener() {
@@ -141,7 +118,29 @@ public class BudgetFragment extends Fragment {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                double incomeValue = Double.parseDouble(incomeEditText.getText().toString());
+                double housingValue = Double.parseDouble(housingEditText.getText().toString());
+                double insuranceValue = Double.parseDouble(insuranceEditText.getText().toString());
+                double foodValue = Double.parseDouble(foodEditText.getText().toString());
+                double other1Value = Double.parseDouble(other1EditText.getText().toString());
+                double other2Value = Double.parseDouble(other2EditText.getText().toString());
+                double other3Value =Double.parseDouble(other3EditText.getText().toString());
+                double totalExpenses = housingValue + insuranceValue + foodValue + other1Value + other2Value + other3Value;
+
+                //Add edit text values to arraylist
+                ArrayList<Double> values = new ArrayList<>();
+                values.add(incomeValue);
+                values.add(housingValue);
+                values.add(insuranceValue);
+                values.add(foodValue);
+                values.add(other1Value);
+                values.add(other2Value);
+                values.add(other3Value);
+                values.add(totalExpenses);
+
                 sendDataToFragment(values);
+                Navigation.findNavController(view)
+                        .navigate(R.id.action_nav_budget_to_budgetResultFragment);
             }
         });
 
