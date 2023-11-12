@@ -18,7 +18,10 @@ import android.widget.Button;
 import com.example.easymoney.CustomViewPagerAdapter;
 import com.example.easymoney.R;
 import com.example.easymoney.SharedViewModel;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -81,14 +84,19 @@ public class BudgetResultHostFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_budget_result, container, false);
 
         ArrayList<Double> receivedData = receiveDataFromFragment();
-        double incomeValue = receivedData.get(0);
-        double housingValue = receivedData.get(1);
-        double insuranceValue = receivedData.get(2);
-        double foodValue = receivedData.get(3);
-        double otherValue1 = receivedData.get(4);
-        double otherValue2 = receivedData.get(5);
-        double otherValue3 = receivedData.get(6);
-        double totalExpenses = receivedData.get(7);
+        ArrayList<Double> formattedData = new ArrayList<>();
+        for (double data : receivedData){
+            String formattedValue = String.format("%.2f", data);
+            formattedData.add(Double.parseDouble(formattedValue));
+        }
+        double incomeValue = formattedData.get(0);
+        double housingValue = formattedData.get(1);
+        double insuranceValue = formattedData.get(2);
+        double foodValue = formattedData.get(3);
+        double otherValue1 = formattedData.get(4);
+        double otherValue2 = formattedData.get(5);
+        double otherValue3 = formattedData.get(6);
+        double totalExpenses = formattedData.get(7);
         double savings = incomeValue-totalExpenses;
         double housingPercent = findPercent(housingValue,incomeValue);
         double insurancePercent = findPercent(insuranceValue,incomeValue);
@@ -100,12 +108,19 @@ public class BudgetResultHostFragment extends Fragment {
 
         viewPager2 = view.findViewById(R.id.viewpager);
         viewPager2.setAdapter(new CustomViewPagerAdapter(getActivity(), incomeValue, housingValue, insuranceValue, foodValue,
-                otherValue1, otherValue2, otherValue3, totalExpenses,
-                savings, housingPercent, insurancePercent,
+                otherValue1,totalExpenses, savings, housingPercent, insurancePercent,
                 foodPercent, otherValue1Percent));
         
         return view;
     }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        TabLayout tabLayout = view.findViewById(R.id.result_tab_layout);
+        new TabLayoutMediator(tabLayout, viewPager2, (tab, position) ->
+                tab.setText(("\u25CF"))).attach();
+    }
+
     //gets data sent from the budgetFragment
     private ArrayList<Double> receiveDataFromFragment(){
         return sharedViewModel.getSharedData();
