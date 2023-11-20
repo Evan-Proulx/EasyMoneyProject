@@ -45,6 +45,7 @@
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:text="5000.00"
                     android:hint="$0.00"
                     android:textColor="@color/theme_black"
                     />
@@ -85,6 +86,7 @@
                         android:inputType="numberDecimal"
                         android:textAlignment="textStart"
                         android:textColor="@color/theme_black"
+                        android:text="0"
                         android:hint="Years"/>
 
                     <EditText
@@ -97,6 +99,7 @@
                         android:inputType="numberDecimal"
                         android:textAlignment="textStart"
                         android:textColor="@color/theme_black"
+                        android:text="0"
                         android:hint="Months"/>
                 </LinearLayout>
             </LinearLayout>
@@ -121,7 +124,7 @@
                     android:textSize="16sp" />
 
                 <RadioGroup
-                    android:id="@+id/radioGroup"
+                    android:id="@+id/paymentTimeRadioGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -132,7 +135,7 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
                         android:hapticFeedbackEnabled="true"
-                        android:text="weekly"
+                        android:text="Weekly"
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
@@ -141,7 +144,7 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
                         android:checked="true"
-                        android:text="monthly"
+                        android:text="Monthly"
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
@@ -150,7 +153,7 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
                         android:checked="false"
-                        android:text="annual"
+                        android:text="Annual"
                         android:textColor="@color/theme_white" />
 
                 </RadioGroup>
@@ -186,7 +189,7 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
                         android:checked="false"
-                        android:text="weekly"
+                        android:text="Weekly"
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
@@ -195,7 +198,7 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
                         android:checked="true"
-                        android:text="monthly"
+                        android:text="Monthly"
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
@@ -203,7 +206,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
-                        android:text="annual"
+                        android:text="Annual"
                         android:textColor="@color/theme_white" />
 
                 </RadioGroup>
@@ -237,12 +240,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins"
-                        android:text="0%"
+                        android:text="4%"
                         android:textColor="@color/theme_white"
                         android:textSize="16sp" />
 
                     <SeekBar
-                        android:id="@+id/seekBar"
+                        android:id="@+id/interestSeekBar"
                         style="@style/Widget.AppCompat.SeekBar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

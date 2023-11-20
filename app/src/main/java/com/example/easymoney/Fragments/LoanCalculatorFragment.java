@@ -7,7 +7,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.example.easymoney.R;
 
@@ -63,6 +68,99 @@ public class LoanCalculatorFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_loan_calculator, container, false);
+
+        EditText loanAmount = view.findViewById(R.id.amountEditText);
+        EditText termYears = view.findViewById(R.id.yearEditText);
+        EditText termMonths = view.findViewById(R.id.monthEditText);
+        TextView interestRatePercent = view.findViewById(R.id.interestRatePercentTextView);
+        SeekBar interestRateSeek = view.findViewById(R.id.interestSeekBar);
+        String selectedPaymentTime = "";
+        String selectedCompound = "";
+
+
+        RadioGroup paymentTimeRadioGroup = view.findViewById(R.id.paymentTimeRadioGroup);
+        RadioGroup compoundRadioGroup = view.findViewById(R.id.compoundRadioGroup);
+        int selectedPaymentId = paymentTimeRadioGroup.getCheckedRadioButtonId();
+        int selectedCompoundId = compoundRadioGroup.getCheckedRadioButtonId();
+
+        if (selectedPaymentId != -1) {
+            RadioButton selectedPaymentButton = view.findViewById(selectedPaymentId);
+            selectedPaymentTime = selectedPaymentButton.getText().toString();
+        }
+
+        if (selectedCompoundId != -1) {
+            RadioButton selectedCompoundButton = view.findViewById(selectedCompoundId);
+            selectedCompound = selectedCompoundButton.getText().toString();
+        }
+
+        interestRateSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                interestRatePercent.setText(String.valueOf(i) + "%");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
+        String loanAmountText = loanAmount.getText().toString();
+        String termYearsText = termYears.getText().toString();
+        String termMonthsText = termMonths.getText().toString();
+
+        //get number values
+        double loanAmountValue = Double.parseDouble(loanAmountText);
+        double interestRateValue = interestRateSeek.getProgress() / 100.0;
+        int termYearsValue = Integer.parseInt(termYearsText);
+        int termMonthsValue = Integer.parseInt(termMonthsText);
+        int numOfPayments;
+        double monthlyInterest;
+        int compoundsPerYear;
+
+
+        //Set interest based on when payments are due
+        if (selectedPaymentTime.equals("Monthly")) {
+            numOfPayments = termYearsValue * 12 + termMonthsValue;
+            monthlyInterest = interestRateValue / 12;
+        } else if (selectedPaymentTime.equals("Weekly")) {
+            numOfPayments = termYearsValue * 52 + termMonthsValue * 4;
+            monthlyInterest = interestRateValue / 52;
+        } else {
+            numOfPayments = termYearsValue;
+            monthlyInterest = interestRateValue;
+        }
+
+        if (selectedCompound.equals("Monthly")) {
+            compoundsPerYear = 12;
+        } else if (selectedCompound.equals("Weekly")) {
+            compoundsPerYear = 52;
+        } else {
+            compoundsPerYear = 1;
+        }
+
+        double calculatedInterestRate = interestRateValue / compoundsPerYear;
+        System.out.println(calculatedInterestRate);
+        double calculatedPayment = (monthlyInterest * loanAmountValue) / (1 - Math.pow(monthlyInterest, -numOfPayments));
+        System.out.println(calculatedPayment);
+
+
+        Button submitButton = view.findViewById(R.id.loanSubmitBtn);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                    System.out.println("Your interest rate: " + calculatedInterestRate + "\n" +
+                            "Your payment: " + calculatedPayment);
+                }
+        });
+
         return view;
     }
+
+
 }
