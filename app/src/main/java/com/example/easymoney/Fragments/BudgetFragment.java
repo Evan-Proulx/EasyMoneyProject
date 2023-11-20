@@ -86,16 +86,12 @@ public class BudgetFragment extends Fragment {
         TextView insuranceTextView = view.findViewById(R.id.insuranceTextView);
         TextView foodTextView = view.findViewById(R.id.foodTextView);
         TextView other1TextView = view.findViewById(R.id.other1TextView);
-        TextView other2TextView = view.findViewById(R.id.other2TextView);
-        TextView other3TextView = view.findViewById(R.id.other3TextView);
 
         EditText incomeEditText = view.findViewById(R.id.editTextIncome);
         EditText housingEditText = view.findViewById(R.id.housingEditText);
         EditText insuranceEditText = view.findViewById(R.id.insuranceEditText);
         EditText foodEditText = view.findViewById(R.id.foodEditText);
         EditText other1EditText = view.findViewById(R.id.other1EditText);
-        EditText other2EditText = view.findViewById(R.id.other2EditText);
-        EditText other3EditText = view.findViewById(R.id.other3EditText);
         Button resetBtn = view.findViewById(R.id.resetBtn);
         Button submitBtn = view.findViewById(R.id.submitBtn);
 
@@ -109,8 +105,6 @@ public class BudgetFragment extends Fragment {
                 insuranceEditText.setText("");
                 foodEditText.setText("");
                 other1EditText.setText("");
-                other2EditText.setText("");
-                other3EditText.setText("");
             }
         });
 
@@ -123,9 +117,7 @@ public class BudgetFragment extends Fragment {
                 double insuranceValue = Double.parseDouble(insuranceEditText.getText().toString());
                 double foodValue = Double.parseDouble(foodEditText.getText().toString());
                 double other1Value = Double.parseDouble(other1EditText.getText().toString());
-                double other2Value = Double.parseDouble(other2EditText.getText().toString());
-                double other3Value =Double.parseDouble(other3EditText.getText().toString());
-                double totalExpenses = housingValue + insuranceValue + foodValue + other1Value + other2Value + other3Value;
+                double totalExpenses = housingValue + insuranceValue + foodValue + other1Value;
 
                 //Add edit text values to arraylist
                 ArrayList<Double> values = new ArrayList<>();
@@ -134,8 +126,6 @@ public class BudgetFragment extends Fragment {
                 values.add(insuranceValue);
                 values.add(foodValue);
                 values.add(other1Value);
-                values.add(other2Value);
-                values.add(other3Value);
                 values.add(totalExpenses);
 
                 sendDataToFragment(values);
