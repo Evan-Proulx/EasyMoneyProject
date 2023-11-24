@@ -49,6 +49,6 @@
     <fragment
         android:id="@+id/loanResultFragment"
         android:name="com.example.easymoney.Fragments.LoanResultFragment"
-        android:label="fragment_loan_result"
+        android:label="Easy Loans"
         tools:layout="@layout/fragment_loan_result" />
 </navigation>

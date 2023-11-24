@@ -1,5 +1,6 @@
 package com.example.easymoney.Fragments;
 
+import android.app.LauncherActivity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.easymoney.ListItem;
 import com.example.easymoney.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +65,13 @@ public class InfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_info, container, false);
+        View view = inflater.inflate(R.layout.fragment_info, container, false);
+
+        ArrayList<ListItem> listItems = new ArrayList<>();
+        listItems.add(new ListItem("title","description"));
+
+
+
+        return view;
     }
 }
