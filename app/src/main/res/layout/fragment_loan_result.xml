@@ -7,15 +7,77 @@
     android:background="@color/theme_black"
     tools:context=".Fragments.LoanResultFragment">
 
-    <TextView
-        android:id="@+id/loanResultTextView"
+    <LinearLayout
+        android:id="@+id/resultLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fontFamily="@font/bungee"
-        android:gravity="center"
-        android:text="Hello"
-        android:textAlignment="center"
-        android:textColor="@color/theme_yellow"
-        android:textSize="34sp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/paymentTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/bungee"
+            android:text="Payment"
+            android:textAlignment="center"
+            android:textColor="@color/theme_white"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/paymentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="@font/bungee"
+            android:text="text"
+            android:textAlignment="center"
+            android:textColor="@color/theme_yellow"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/totalPaymentTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/bungee"
+            android:text="Total Payment"
+            android:textAlignment="center"
+            android:textColor="@color/theme_white"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/totalPaymentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="@font/bungee"
+            android:text="text"
+            android:textAlignment="center"
+            android:textColor="@color/theme_yellow"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/totalInterestTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/bungee"
+            android:text="Total Interest"
+            android:textAlignment="center"
+            android:textColor="@color/theme_white"
+            android:textSize="34sp" />
+
+        <TextView
+            android:id="@+id/totalInterestTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:fontFamily="@font/bungee"
+            android:text="text"
+            android:textAlignment="center"
+            android:textColor="@color/theme_yellow"
+            android:textSize="34sp" />
+    </LinearLayout>
 
 </LinearLayout>
