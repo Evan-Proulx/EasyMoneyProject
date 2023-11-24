@@ -18,7 +18,11 @@
         android:id="@+id/nav_loan"
         android:name="com.example.easymoney.Fragments.LoanCalculatorFragment"
         android:label="Easy Loans"
-        tools:layout="@layout/fragment_loan_calculator" />
+        tools:layout="@layout/fragment_loan_calculator" >
+        <action
+            android:id="@+id/action_nav_loan_to_loanResultFragment"
+            app:destination="@id/loanResultFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_budget"
         android:name="com.example.easymoney.Fragments.BudgetFragment"
@@ -42,4 +46,9 @@
         android:id="@+id/nav_settings"
         android:name="com.example.easymoney.Fragments.SettingsFragment"
         android:label="Settings" />
+    <fragment
+        android:id="@+id/loanResultFragment"
+        android:name="com.example.easymoney.Fragments.LoanResultFragment"
+        android:label="fragment_loan_result"
+        tools:layout="@layout/fragment_loan_result" />
 </navigation>

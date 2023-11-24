@@ -86,7 +86,6 @@
                         android:inputType="numberDecimal"
                         android:textAlignment="textStart"
                         android:textColor="@color/theme_black"
-                        android:text="0"
                         android:hint="Years"/>
 
                     <EditText
@@ -99,7 +98,6 @@
                         android:inputType="numberDecimal"
                         android:textAlignment="textStart"
                         android:textColor="@color/theme_black"
-                        android:text="0"
                         android:hint="Months"/>
                 </LinearLayout>
             </LinearLayout>
@@ -130,7 +128,7 @@
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/radioButtonOption1"
+                        android:id="@+id/paymentRadioWeekly"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
@@ -139,7 +137,7 @@
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
-                        android:id="@+id/radioButtonOption2"
+                        android:id="@+id/paymentRadioMonthly"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
@@ -148,7 +146,7 @@
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
-                        android:id="@+id/radioButtonOption3"
+                        android:id="@+id/paymentRadioAnnual"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
@@ -158,7 +156,7 @@
 
                 </RadioGroup>
             </LinearLayout>
-            <!--////////////PAYMENT TIME////////////-->
+            <!--////////////Compound////////////-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -184,7 +182,7 @@
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/compoundRadioButtonOption1"
+                        android:id="@+id/compoundRadioWeekly"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
@@ -193,7 +191,7 @@
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
-                        android:id="@+id/compoundRadioButtonOption2"
+                        android:id="@+id/compoundRadioMonthly"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
@@ -202,7 +200,7 @@
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
-                        android:id="@+id/compoundRadioButtonOption3"
+                        android:id="@+id/compoundRadioAnnual"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
