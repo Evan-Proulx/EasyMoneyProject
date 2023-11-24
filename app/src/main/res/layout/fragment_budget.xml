@@ -65,13 +65,13 @@
                 <EditText
                     android:id="@+id/editTextIncome"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/theme_white"
-                    android:textColor="@color/theme_black"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:text="0.00"
-                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+                    android:textColor="@color/theme_black"
+                    />
 
             </LinearLayout>
 
@@ -97,13 +97,13 @@
                 <EditText
                     android:id="@+id/housingEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/theme_white"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:textColor="@color/theme_black"
                     android:text="0.00"
-                    android:textAlignment="textStart" />
+                    android:textAlignment="textStart"
+                    android:textColor="@color/theme_black" />
             </LinearLayout>
 
             <!--    INSURANCE LAYOUT-->
@@ -129,13 +129,13 @@
                 <EditText
                     android:id="@+id/insuranceEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/theme_white"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:textColor="@color/theme_black"
                     android:text="0.00"
-                    android:textAlignment="textStart" />
+                    android:textAlignment="textStart"
+                    android:textColor="@color/theme_black" />
             </LinearLayout>
 
             <!--    FOOD LAYOUT-->
@@ -160,13 +160,13 @@
                 <EditText
                     android:id="@+id/foodEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/theme_white"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:textColor="@color/theme_black"
                     android:text="0.00"
-                    android:textAlignment="textStart" />
+                    android:textAlignment="textStart"
+                    android:textColor="@color/theme_black" />
             </LinearLayout>
 
             <!--  OTHER LAYOUT 1    -->
@@ -191,75 +191,13 @@
                 <EditText
                     android:id="@+id/other1EditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/theme_white"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:textColor="@color/theme_black"
                     android:text="0.00"
-                    android:textAlignment="textStart" />
-            </LinearLayout>
-
-            <!-- OTHER LAYOUT 2-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="70dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
-                android:orientation="vertical"
-                android:textAlignment="center">
-
-                <TextView
-                    android:id="@+id/other2TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="Other Expenses 2/month"
-                    android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/other2EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/theme_white"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/theme_black"
-                    android:text="0.00"
-                    android:textAlignment="textStart" />
-            </LinearLayout>
-
-            <!--OTHER LAYOUT 3-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="70dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
-                android:orientation="vertical"
-                android:textAlignment="center">
-
-                <TextView
-                    android:id="@+id/other3TextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="Other Expenses 3/month"
-                    android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/other3EditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/theme_white"
-                    android:ems="10"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/theme_black"
-                    android:text="0.00"
-                    android:textAlignment="textStart" />
+                    android:textAlignment="textStart"
+                    android:textColor="@color/theme_black" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
