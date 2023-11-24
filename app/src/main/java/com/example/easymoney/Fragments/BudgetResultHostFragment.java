@@ -94,16 +94,12 @@ public class BudgetResultHostFragment extends Fragment {
         double insuranceValue = formattedData.get(2);
         double foodValue = formattedData.get(3);
         double otherValue1 = formattedData.get(4);
-        double otherValue2 = formattedData.get(5);
-        double otherValue3 = formattedData.get(6);
-        double totalExpenses = formattedData.get(7);
+        double totalExpenses = formattedData.get(5);
         double savings = incomeValue-totalExpenses;
         double housingPercent = findPercent(housingValue,incomeValue);
         double insurancePercent = findPercent(insuranceValue,incomeValue);
         double foodPercent = findPercent(foodValue,incomeValue);
         double otherValue1Percent = findPercent(otherValue1,incomeValue);
-        double otherValue2Percent = findPercent(otherValue2,incomeValue);
-        double otherValue3Percent = findPercent(otherValue3,incomeValue);
 
 
         viewPager2 = view.findViewById(R.id.viewpager);
