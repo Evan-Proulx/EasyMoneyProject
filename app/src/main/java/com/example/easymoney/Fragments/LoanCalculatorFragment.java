@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +16,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.easymoney.R;
 import com.example.easymoney.SharedViewModel;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -89,12 +94,10 @@ public class LoanCalculatorFragment extends Fragment {
         RadioButton compoundMonthly = view.findViewById(R.id.compoundRadioMonthly);
         RadioButton compoundAnnual = view.findViewById(R.id.compoundRadioAnnual);
 
-//        int paymentWeeklyId= paymentWeekly.getId();
-//        int paymentMonthlyId= paymentMonthly.getId();
-//        int paymentAnnualId = paymentAnnual.getId();
-//        int compoundWeeklyId = compoundWeekly.getId();
-//        int compoundMonthlyId = compoundMonthly.getId();
-//        int compoundAnnualId = compoundAnnual.getId();
+        String loanAmountText = loanAmount.getText().toString().trim();
+        String termYearsText = termYears.getText().toString().trim();
+        String termMonthsText = termMonths.getText().toString().trim();
+
 
         interestRateSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -112,7 +115,6 @@ public class LoanCalculatorFragment extends Fragment {
         });
 
 
-
         //get number values
 
 
@@ -123,61 +125,97 @@ public class LoanCalculatorFragment extends Fragment {
             public void onClick(View view) {
                 int numOfPayments;
                 double monthlyInterest;
-                int compoundsPerYear = 2;
+                int compoundsPerYear = 0;
+                double paymentTime = 0;
 
-                double loanAmountValue = Double.parseDouble(loanAmount.getText().toString());
                 double interestRateValue = interestRateSeek.getProgress() / 100.0;
-                int termYearsValue = Integer.parseInt(termYears.getText().toString());
-                int termMonthsValue = Integer.parseInt(termMonths.getText().toString());
+                //make sure values have been set before parsing string
 
-                System.out.println("Term months " + termMonthsValue+"\n" +
-                        "Term years " + termYearsValue + "\n" +
-                        "interest rate " + interestRateValue);
+//                if (TextUtils.isEmpty(loanAmountText) || TextUtils.isEmpty(termYearsText) || TextUtils.isEmpty(termMonthsText)) {
+//                    Toast.makeText(getContext(), "You are missing values! Try Again", Toast.LENGTH_SHORT).show();
 
+//                } else {
+                    double loanAmountValue = Double.parseDouble(loanAmount.getText().toString());
+                    int termYearsValue = Integer.parseInt(termYears.getText().toString());
+                    int termMonthsValue = Integer.parseInt(termMonths.getText().toString());
 
-                //Set interest based on when payments are due
-                if (paymentMonthly.isChecked()) {
-                    numOfPayments = termYearsValue * 12 + termMonthsValue;
-                    monthlyInterest = interestRateValue / 12;
-                    System.out.println("monthly checked");
+                    //Set interest based on when payments are due
+                    if (paymentMonthly.isChecked()) {
+                        numOfPayments = termYearsValue * 12 + termMonthsValue;
+                        monthlyInterest = interestRateValue / 12;
+                        paymentTime = 1;
+                        System.out.println("monthly checked");
+                    } else if (paymentWeekly.isChecked()) {
+                        numOfPayments = termYearsValue * 52 + termMonthsValue * 4;
+                        monthlyInterest = interestRateValue / 52;
+                        paymentTime = 2;
+                        System.out.println("weekly checked");
+                    } else {
+                        numOfPayments = termYearsValue;
+                        monthlyInterest = interestRateValue;
+                        paymentTime = 3;
+                        System.out.println("yearly checked");
+                    }
 
-                } else if (paymentWeekly.isChecked()) {
-                    numOfPayments = termYearsValue * 52 + termMonthsValue * 4;
-                    monthlyInterest = interestRateValue / 52;
-                    System.out.println("weekly checked");
-                } else {
-                    numOfPayments = termYearsValue;
-                    monthlyInterest = interestRateValue;
-                    System.out.println("eyarlye checked");
-                }
+                    //set compound on chosen time
+                    if (compoundMonthly.isChecked()) {
+                        compoundsPerYear = 12;
+                        System.out.println("monthly checked");
+                    } else if (compoundWeekly.isChecked()) {
+                        compoundsPerYear = 52;
+                        System.out.println("weekly checked");
 
-                if (compoundMonthly.isChecked()) {
-                    compoundsPerYear = 12;
-                    System.out.println("monthly checked");
-                } else if (compoundWeekly.isChecked()) {
-                    compoundsPerYear = 52;
-                    System.out.println("weekly checked");
+                    } else {
+                        compoundsPerYear = 1;
+                        System.out.println("eyarlye checked");
+                    }
 
-                } else {
-                    compoundsPerYear = 1;
-                    System.out.println("eyarlye checked");
-                }
+                    double calculatedInterestRate = interestRateValue / compoundsPerYear;
+                    System.out.println(calculatedInterestRate);
+                    double calculatedPayment = (monthlyInterest * loanAmountValue) / (1 - Math.pow(1 + monthlyInterest, -numOfPayments));
+                    System.out.println(calculatedPayment);
 
-                double calculatedInterestRate = interestRateValue / compoundsPerYear;
-                System.out.println(calculatedInterestRate);
-                double calculatedPayment = (monthlyInterest * loanAmountValue) / (1 - Math.pow(1+monthlyInterest, -numOfPayments));
-                System.out.println(calculatedPayment);
+                    double totalPayment = calculatedPayment * numOfPayments;
+                    double totalInterest = totalPayment - loanAmountValue;
 
                     System.out.println("Your interest rate: " + calculatedInterestRate + "\n" +
-                            "Your payment: " + calculatedPayment);
+                            "Your payment: " + calculatedPayment + "\n" +
+                            "total payment: " + totalPayment + "\n" +
+                            "totalinterest: " + totalInterest);
 
-                Navigation.findNavController(view)
-                        .navigate(R.id.action_nav_loan_to_loanResultFragment);
 
-            }
+                    ArrayList<Double> values = new ArrayList<>();
+                    values.add(calculatedInterestRate);
+                    values.add(calculatedPayment);
+                    values.add(totalPayment);
+                    values.add(totalInterest);
+                    values.add(paymentTime);
+
+                    //format values and send to result fragment
+                    for (int i = 0; i < values.size(); i++) {
+                        double formattedValue = formatNum(values.get(i));
+                        values.set(i, formattedValue);
+                    }
+                    sendDataToFragment(values);
+
+                    Navigation.findNavController(view)
+                            .navigate(R.id.action_nav_loan_to_loanResultFragment);
+
+                }
         });
 
         return view;
+    }
+
+    //format double values
+    private double formatNum(double num) {
+        DecimalFormat df = new DecimalFormat("#.##");
+
+        return Double.parseDouble(df.format(num));
+    }
+
+    private void sendDataToFragment(ArrayList<Double> values) {
+        sharedViewModel.setSharedData(values);
     }
 
 

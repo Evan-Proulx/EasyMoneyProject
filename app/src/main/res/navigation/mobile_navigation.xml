@@ -12,7 +12,7 @@
     <fragment
         android:id="@+id/nav_info"
         android:name="com.example.easymoney.Fragments.InfoFragment"
-        android:label="Info"
+        android:label="Money Saving Tips"
         tools:layout="@layout/fragment_info" />
     <fragment
         android:id="@+id/nav_loan"
@@ -49,6 +49,11 @@
     <fragment
         android:id="@+id/loanResultFragment"
         android:name="com.example.easymoney.Fragments.LoanResultFragment"
-        android:label="fragment_loan_result"
+        android:label="Easy Loans"
         tools:layout="@layout/fragment_loan_result" />
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.example.easymoney.ContactFragment"
+        android:label="Contact"
+        tools:layout="@layout/fragment_contact" />
 </navigation>
