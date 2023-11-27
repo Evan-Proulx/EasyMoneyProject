@@ -53,7 +53,7 @@
         tools:layout="@layout/fragment_loan_result" />
     <fragment
         android:id="@+id/nav_contact"
-        android:name="com.example.easymoney.ContactFragment"
+        android:name="com.example.easymoney.Fragments.ContactFragment"
         android:label="Contact"
         tools:layout="@layout/fragment_contact" />
 </navigation>
