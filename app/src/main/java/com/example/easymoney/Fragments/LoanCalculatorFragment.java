@@ -116,8 +116,6 @@ public class LoanCalculatorFragment extends Fragment {
 
 
         //get number values
-
-
         Button submitButton = view.findViewById(R.id.loanSubmitBtn);
 
         submitButton.setOnClickListener(new View.OnClickListener() {

@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.easymoney.CurrencyUtil;
 import com.example.easymoney.CustomViewPagerAdapter;
 import com.example.easymoney.R;
 import com.example.easymoney.SharedViewModel;
@@ -42,6 +43,7 @@ public class BudgetResultHostFragment extends Fragment {
     private SharedViewModel sharedViewModel;
 
     ViewPager2 viewPager2;
+
 
 
 
@@ -82,6 +84,9 @@ public class BudgetResultHostFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_budget_result, container, false);
+        String selectedCurrency = CurrencyUtil.getSelectedCurrency(requireContext());
+        String currencySymbol = CurrencyUtil.getCurrencySymbol(selectedCurrency);
+
 
         ArrayList<Double> receivedData = receiveDataFromFragment();
         ArrayList<Double> formattedData = new ArrayList<>();

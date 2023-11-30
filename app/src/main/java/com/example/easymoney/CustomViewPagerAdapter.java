@@ -1,12 +1,15 @@
 
 package com.example.easymoney;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.easymoney.Fragments.ResultFragment;
+import com.example.easymoney.Fragments.SettingsFragment;
 
 public class CustomViewPagerAdapter extends FragmentStateAdapter {
 
@@ -21,6 +24,8 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
     private double insurancePercent;
     private double foodPercent;
     private double otherValue1Percent;
+
+    private Context context;
 
     public CustomViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, double incomeValue, double housingValue, double insuranceValue,
                                   double foodValue, double otherValue1, double totalExpenses, double savings, double housingPercent, double insurancePercent,
@@ -39,19 +44,24 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
         this.insurancePercent = insurancePercent;
         this.foodPercent = foodPercent;
         this.otherValue1Percent = otherValue1Percent;
+        this.context = fragmentActivity;
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
+        String selectedCurrency = CurrencyUtil.getSelectedCurrency(context);
+        String currencySymbol = CurrencyUtil.getCurrencySymbol(selectedCurrency);
+
+
         position = position%6;
         switch (position){
-            case 0: return ResultFragment.newInstance("Income: \n" + "$"+incomeValue, "Total Spending: " + "$"+totalExpenses);
-            case 1: return ResultFragment.newInstance("Housing: \n" + "$"+housingValue,  housingPercent + "%");
-            case 2: return ResultFragment.newInstance("Insurance: \n" + "$"+insuranceValue, insurancePercent + "%");
-            case 3: return ResultFragment.newInstance("Food: \n" + "$"+foodValue, foodPercent + "%");
-            case 4: return ResultFragment.newInstance("Other: \n" + "$"+otherValue1, otherValue1Percent + "%");
-            case 5: return ResultFragment.newInstance("Savings : \n" + savings, "$"+savings);
+            case 0: return ResultFragment.newInstance("Income: \n" + currencySymbol +incomeValue, "Total Spending: " + currencySymbol +totalExpenses);
+            case 1: return ResultFragment.newInstance("Housing: \n" + currencySymbol +housingValue,  housingPercent + "%");
+            case 2: return ResultFragment.newInstance("Insurance: \n" + currencySymbol +insuranceValue, insurancePercent + "%");
+            case 3: return ResultFragment.newInstance("Food: \n" + currencySymbol +foodValue, foodPercent + "%");
+            case 4: return ResultFragment.newInstance("Other: \n" + currencySymbol +otherValue1, otherValue1Percent + "%");
+            case 5: return ResultFragment.newInstance("Savings : \n" + savings, currencySymbol+savings);
             default: return ResultFragment.newInstance("404: Fragment not found", "Try again :(");
         }
     }

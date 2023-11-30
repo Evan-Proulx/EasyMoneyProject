@@ -28,7 +28,7 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
 
-    <string name="dollar_format">$%s</string>
+    <string name="currency_format">%s</string>
 
 
 </resources>

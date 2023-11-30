@@ -1,9 +1,11 @@
 package com.example.easymoney.Fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.easymoney.CurrencyUtil;
 import com.example.easymoney.R;
 import com.example.easymoney.SharedViewModel;
 
@@ -81,12 +84,14 @@ public class LoanResultFragment extends Fragment {
         TextView totalInterestTitleTextView = view.findViewById(R.id.totalInterestTitleTextView);
         TextView totalInterestTextView = view.findViewById(R.id.totalInterestTextView);
 
+        String selectedCurrency = CurrencyUtil.getSelectedCurrency(getContext());
+        String currencySymbol = CurrencyUtil.getCurrencySymbol(selectedCurrency);
 
         ArrayList<Double> receivedData = receiveDataFromFragment();
-        double calculatedInterestRate = receivedData.get(0);
-        double calculatedPayment = receivedData.get(1);
-        double totalPayment = receivedData.get(2);
-        double totalInterest = receivedData.get(3);
+        String calculatedInterestRate = currencySymbol + receivedData.get(0).toString();
+        String calculatedPayment = currencySymbol + receivedData.get(1).toString();
+        String totalPayment = currencySymbol + receivedData.get(2).toString();
+        String totalInterest = currencySymbol + receivedData.get(3).toString();
         double paymentTime = receivedData.get(4);
 
         //checks what payment time was selected and changes text
@@ -96,15 +101,19 @@ public class LoanResultFragment extends Fragment {
             case 3: paymentTitleTextView.setText("Yearly Payments");break;
         }
 
-        paymentTextView.setText(getString(R.string.dollar_format, String.valueOf(calculatedPayment)));
-        totalPaymentTextView.setText(getString(R.string.dollar_format, String.valueOf(totalPayment)));
-        totalInterestTextView.setText(getString(R.string.dollar_format, String.valueOf(totalInterest)));
-
+        paymentTextView.setText(calculatedPayment);
+        totalPaymentTextView.setText(totalPayment);
+        totalInterestTextView.setText(totalInterest);
 
         LinearLayout resultLinearLayout = view.findViewById(R.id.resultLinearLayout);
+
         Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.loan_animation);
-        resultLinearLayout.startAnimation(animation);
-        return view;
+        //checks to see if animations are disabled in preferences
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean animationDisabled = preferences.getBoolean("anim_disable", false);
+        if (!animationDisabled) {resultLinearLayout.startAnimation(animation);}
+
+            return view;
     }
 
     //gets data sent from the LoanCalculatorFragment

@@ -13,6 +13,12 @@
             app:icon="@drawable/ic_baseline_attach_money_24"
             />
 
+        <CheckBoxPreference
+            app:key="anim_disable"
+            app:title="Disable Animations"
+            app:summary="Disable animations to help performance"
+            app:defaultValue="false"
+            android:icon="@drawable/ic_baseline_animation_24"/>
 
 
 </PreferenceScreen>
