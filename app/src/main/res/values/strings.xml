@@ -30,5 +30,28 @@
 
     <string name="currency_format">%s</string>
 
+    <string name="title">Ea$y Money</string>
+    <string name="home_title_text">Welcome ot the easy money app, where we help you save money, Easy!</string>
+    <string name="home_button_text">Get Started</string>
+    <string name="easy_budget_title">Ea$y Budget</string>
+    <string name="budget_title_text">Create a budget! Enter your monthly income and expenses to begin.</string>
+
+    <string name="income_month">Income/month</string>
+    <string name="housing_expenses_month">Housing Expenses/month</string>
+    <string name="insurance_month">Insurance/month</string>
+    <string name="food_expenses_month">Food Expenses/month</string>
+    <string name="other_expenses_month">Other Expenses/month</string>
+
+    <string name="button_reset">Reset</string>
+    <string name="button_submit">Submit</string>
+    <string name="contact_title">Contact Us</string>
+    <string name="contact_title_text">If you have any issues with the app or want to learn more, contact the Easy Money team here!</string>
+    <string name="email">Email</string>
+    <string name="subject">Subject</string>
+    <string name="message">Message</string>
+    <string name="enter_message">Enter message</string>
+    <string name="button_call_us">Call Us</string>
+    <string name="button_text_us">Text Us</string>
+
 
 </resources>

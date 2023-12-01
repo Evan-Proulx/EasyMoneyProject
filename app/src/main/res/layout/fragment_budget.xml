@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bungee"
-                android:text="Ea$y Budget"
+                android:text="@string/easy_budget_title"
                 android:textAlignment="center"
                 android:textColor="@color/theme_yellow"
                 android:textSize="34sp"
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="70dp"
                 android:fontFamily="@font/poppins"
-                android:text="Create a budget! Enter your monthly income and expenses to begin."
+                android:text="@string/budget_title_text"
                 android:textAlignment="center"
                 android:textColor="@color/theme_white"
                 android:textSize="20sp" />
@@ -58,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Income/month"
+                    android:text="@string/income_month"
                     android:textColor="@color/theme_white"
                     android:textSize="16sp" />
 
@@ -90,7 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Housing Expenses/month"
+                    android:text="@string/housing_expenses_month"
                     android:textColor="@color/theme_white"
                     android:textSize="16sp" />
 
@@ -122,7 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Insurance/month"
+                    android:text="@string/insurance_month"
                     android:textColor="@color/theme_white"
                     android:textSize="16sp" />
 
@@ -153,7 +153,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Food Expenses/month"
+                    android:text="@string/food_expenses_month"
                     android:textColor="@color/theme_white"
                     android:textSize="16sp" />
 
@@ -184,7 +184,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Other Expenses/month"
+                    android:text="@string/other_expenses_month"
                     android:textColor="@color/theme_white"
                     android:textSize="16sp" />
 
@@ -219,7 +219,7 @@
             android:layout_weight="1"
             android:backgroundTint="#DA5B5B"
             android:fontFamily="@font/poppins"
-            android:text="Reset"
+            android:text="@string/reset"
             android:textSize="16sp" />
 
         <Button
@@ -230,7 +230,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/theme_yellow"
             android:fontFamily="@font/poppins"
-            android:text="Submit"
+            android:text="@string/button_submit"
             android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>
