@@ -13,9 +13,12 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.easymoney.CurrencyUtil;
+import com.example.easymoney.CustomListViewAdapter;
+import com.example.easymoney.ListItem;
 import com.example.easymoney.R;
 import com.example.easymoney.SharedViewModel;
 
@@ -77,12 +80,13 @@ public class LoanResultFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_loan_result, container, false);
 
-        TextView paymentTitleTextView = view.findViewById(R.id.paymentTitleTextView);
-        TextView paymentTextView = view.findViewById(R.id.paymentTextView);
-        TextView totalPaymentTitleTextView = view.findViewById(R.id.totalPaymentTitleTextView);
-        TextView totalPaymentTextView = view.findViewById(R.id.totalPaymentTextView);
-        TextView totalInterestTitleTextView = view.findViewById(R.id.totalInterestTitleTextView);
-        TextView totalInterestTextView = view.findViewById(R.id.totalInterestTextView);
+
+        String paymentTitle = "Payment";
+        String totalPaymentTitle = "Total Payment";
+        String totalInterestTitle = "total interest";
+        String payment;
+        String totalPayment;
+        String totalInterest;
 
         String selectedCurrency = CurrencyUtil.getSelectedCurrency(getContext());
         String currencySymbol = CurrencyUtil.getCurrencySymbol(selectedCurrency);
@@ -90,20 +94,26 @@ public class LoanResultFragment extends Fragment {
         ArrayList<Double> receivedData = receiveDataFromFragment();
         String calculatedInterestRate = currencySymbol + receivedData.get(0).toString();
         String calculatedPayment = currencySymbol + receivedData.get(1).toString();
-        String totalPayment = currencySymbol + receivedData.get(2).toString();
-        String totalInterest = currencySymbol + receivedData.get(3).toString();
+        totalPayment = currencySymbol + receivedData.get(2).toString();
+        totalInterest = currencySymbol + receivedData.get(3).toString();
         double paymentTime = receivedData.get(4);
 
         //checks what payment time was selected and changes text
         switch ((int) paymentTime){
-            case 1: paymentTitleTextView.setText("Monthly Payments");break;
-            case 2: paymentTitleTextView.setText("Weekly  Payments");break;
-            case 3: paymentTitleTextView.setText("Yearly Payments");break;
+            case 1: paymentTitle = "Monthly Payments";break;
+            case 2: paymentTitle = "Weekly Payments";break;
+            case 3: paymentTitle = "Yearly Payments";break;
         }
 
-        paymentTextView.setText(calculatedPayment);
-        totalPaymentTextView.setText(totalPayment);
-        totalInterestTextView.setText(totalInterest);
+        ArrayList<ListItem> listItems = new ArrayList<>();
+        listItems.add(new ListItem(paymentTitle, calculatedPayment));
+        listItems.add(new ListItem(totalPaymentTitle, totalPayment));
+        listItems.add(new ListItem(totalInterestTitle, totalInterest));
+
+        CustomListViewAdapter adapter = new CustomListViewAdapter(getContext(), listItems);
+
+        ListView listView = view.findViewById(R.id.listView);
+        listView.setAdapter(adapter);
 
         LinearLayout resultLinearLayout = view.findViewById(R.id.resultLinearLayout);
 
