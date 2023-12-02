@@ -219,7 +219,7 @@
             android:layout_weight="1"
             android:backgroundTint="#DA5B5B"
             android:fontFamily="@font/poppins"
-            android:text="@string/reset"
+            android:text="@string/button_reset"
             android:textSize="16sp" />
 
         <Button

@@ -52,6 +52,9 @@
     <string name="enter_message">Enter message</string>
     <string name="button_call_us">Call Us</string>
     <string name="button_text_us">Text Us</string>
+    <string name="budget_button">Calculate a budget</string>
+    <string name="loan_button">Calculate a loan</string>
+    <string name="info_button">Get more info</string>
 
 
 </resources>

@@ -3,10 +3,12 @@ package com.example.easymoney.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.easymoney.R;
 
@@ -61,6 +63,32 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        Button budgetButton = view.findViewById(R.id.budgetButton);
+        Button loanButton = view.findViewById(R.id.loanButton);
+        Button infoButton = view.findViewById(R.id.infoButton);
+
+        budgetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view)
+                        .navigate(R.id.nav_budget);
+            }
+        });
+        loanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view)
+                        .navigate(R.id.nav_loan);
+            }
+        });
+        infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view)
+                        .navigate(R.id.nav_info);
+            }
+        });
+        return view;
     }
 }
