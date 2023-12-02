@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.preference.CheckBoxPreference;
+import androidx.preference.EditTextPreference;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreferenceCompat;
@@ -21,14 +23,24 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             disableAnimationsPreference.setOnPreferenceChangeListener((preference, newValue) -> {
                 boolean disableAnimations = (boolean) newValue;
 
-                // Handle the preference change, e.g., save it to SharedPreferences
+                // Change the state of disable animation setting
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 preferences.edit().putBoolean("anim_disable", disableAnimations).apply();
 
-                // Return true to update the preference's state
                 return true;
             });
         }
+
+        EditTextPreference userNamePreference = (EditTextPreference) findPreference("userName");
+        userNamePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                // The user name has changed
+                String newName = (String) newValue;
+                // You can save it to SharedPreferences or perform any necessary actions
+                return true; // Returning true means the change is accepted
+            }
+        });
     }
 }
 

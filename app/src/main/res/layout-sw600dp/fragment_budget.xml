@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/theme_black"
+    android:id="@+id/budget_fragment_container"
+    tools:context=".Fragments.BudgetFragment">
+
+
+    <!-- BUTTON LAYOUT   -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--TOP TEXT-->
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bungee"
+                android:text="@string/easy_budget_title"
+                android:textAlignment="center"
+                android:textColor="@color/theme_yellow"
+                android:textSize="@dimen/text_size_72sp" />
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="70dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/budget_title_text"
+                android:textAlignment="center"
+                android:textColor="@color/theme_white"
+                android:textSize="@dimen/text_size_48sp" />
+
+            <!--    INCOME LAYOUT-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="70dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical"
+                android:textAlignment="center">
+
+                <TextView
+                    android:id="@+id/incomeTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/income_month"
+                    android:textColor="@color/theme_white"
+                    android:textSize="@dimen/text_size_36sp" />
+
+                <EditText
+                    android:id="@+id/editTextIncome"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:background="@drawable/edit_text_style"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:text="0.00"
+                    android:textColor="@color/theme_black"
+                    android:textSize="@dimen/text_size_36sp" />
+
+            </LinearLayout>
+
+            <!--    HOUSING LAYOUT-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="70dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical"
+                android:textAlignment="center">
+
+                <TextView
+                    android:id="@+id/housingTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/housing_expenses_month"
+                    android:textColor="@color/theme_white"
+                    android:textSize="@dimen/text_size_36sp" />
+
+                <EditText
+                    android:id="@+id/housingEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:background="@drawable/edit_text_style"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:text="0.00"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/theme_black"
+                    android:textSize="@dimen/text_size_36sp" />
+            </LinearLayout>
+
+            <!--    INSURANCE LAYOUT-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="70dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical"
+                android:textAlignment="center">
+
+                <TextView
+                    android:id="@+id/insuranceTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/insurance_month"
+                    android:textColor="@color/theme_white"
+                    android:textSize="@dimen/text_size_36sp" />
+
+                <EditText
+                    android:id="@+id/insuranceEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:background="@drawable/edit_text_style"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:text="0.00"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/theme_black"
+                    android:textSize="@dimen/text_size_36sp" />
+            </LinearLayout>
+
+            <!--    FOOD LAYOUT-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="70dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical"
+                android:textAlignment="center">
+
+                <TextView
+                    android:id="@+id/foodTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/food_expenses_month"
+                    android:textColor="@color/theme_white"
+                    android:textSize="@dimen/text_size_36sp" />
+
+                <EditText
+                    android:id="@+id/foodEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:background="@drawable/edit_text_style"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:text="0.00"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/theme_black"
+                    android:textSize="@dimen/text_size_36sp" />
+            </LinearLayout>
+
+            <!--  OTHER LAYOUT 1    -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="70dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical"
+                android:textAlignment="center">
+
+                <TextView
+                    android:id="@+id/other1TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/other_expenses_month"
+                    android:textColor="@color/theme_white"
+                    android:textSize="@dimen/text_size_36sp" />
+
+                <EditText
+                    android:id="@+id/other1EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:background="@drawable/edit_text_style"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:text="0.00"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/theme_black"
+                    android:textSize="@dimen/text_size_36sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="70dp"
+        android:layout_weight="3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/resetBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#DA5B5B"
+            android:fontFamily="@font/poppins"
+            android:text="@string/button_reset"
+            android:textSize="@dimen/text_size_36sp" />
+
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/theme_yellow"
+            android:fontFamily="@font/poppins"
+            android:text="@string/button_submit"
+            android:textSize="@dimen/text_size_36sp" />
+    </LinearLayout>
+</LinearLayout>

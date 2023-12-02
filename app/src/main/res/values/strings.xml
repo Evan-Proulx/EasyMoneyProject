@@ -55,6 +55,9 @@
     <string name="budget_button">Calculate a budget</string>
     <string name="loan_button">Calculate a loan</string>
     <string name="info_button">Get more info</string>
+    <string name="greeting_text">Hello, %s</string>
+    <string name="greeting_default">Hello!</string>
+    <string name="credit_text">Made by Evan Proulx</string>
 
 
 </resources>
