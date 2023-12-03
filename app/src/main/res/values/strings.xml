@@ -10,4 +10,98 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+
+    <string name="currency_format">%s</string>
+
+    <string name="title">Ea$y Money</string>
+    <string name="home_title_text">Welcome ot the easy money app, where we help you save money, Easy!</string>
+    <string name="home_button_text">Get Started</string>
+    <string name="easy_budget_title">Ea$y Budget</string>
+    <string name="budget_title_text">Create a budget! Enter your monthly income and expenses to begin.</string>
+
+    <string name="income_month">Income/month</string>
+    <string name="housing_expenses_month">Housing Expenses/month</string>
+    <string name="insurance_month">Insurance/month</string>
+    <string name="food_expenses_month">Food Expenses/month</string>
+    <string name="other_expenses_month">Other Expenses/month</string>
+
+    <string name="button_reset">Reset</string>
+    <string name="button_submit">Submit</string>
+    <string name="contact_title">Contact Us</string>
+    <string name="contact_title_text">If you have any issues with the app or want to learn more, contact the Easy Money team here!</string>
+    <string name="email">Email</string>
+    <string name="subject">Subject</string>
+    <string name="message">Message</string>
+    <string name="enter_message">Enter message</string>
+    <string name="button_call_us">Call Us</string>
+    <string name="button_text_us">Text Us</string>
+    <string name="budget_button">Calculate a budget</string>
+    <string name="loan_button">Calculate a loan</string>
+    <string name="info_button">Get more info</string>
+    <string name="greeting_text">Hello, %s</string>
+    <string name="greeting_default">Hello!</string>
+    <string name="credit_text">Made by Evan Proulx</string>
+
+
+<!--    INFO FRAGMENT    -->
+    <string name="create_budget_title">Create a Budget</string>
+    <string name="create_budget_description">Make a detailed budget that outlines your monthly income and expenses. Categorize your spending to identify areas where you can cut back.</string>
+
+    <string name="emergency_fund_title">Emergency Fund</string>
+    <string name="emergency_fund_description">Make a detailed budget that outlines your monthly income and expenses. Categorize your spending to identify areas where you can cut back.</string>
+
+    <string name="track_spending_title">Track Your Spending</string>
+    <string name="track_spending_description">Keep track of every expense, no matter how small. This will help you identify areas where you can cut back and ensure you stay within your budget.</string>
+
+    <string name="prioritize_saving_title">Prioritize Saving</string>
+    <string name="prioritize_saving_description">Treat saving as a non-negotiable expense. Set aside a portion of your income each month for savings before spending on other discretionary items.</string>
+
+    <string name="automate_savings_title">Automate Savings</string>
+    <string name="automate_savings_description">Set up automatic transfers to your savings account. This makes saving a habit and ensures that you consistently contribute to your savings goals.</string>
+
+    <string name="cut_expenses_title">Cut Unnecessary Expenses</string>
+    <string name="cut_expenses_description">Identify and eliminate unnecessary expenses. Evaluate your subscriptions, dining out, and impulse purchases. Small savings can add up over time.</string>
+
+    <string name="compare_prices_title">Compare Prices</string>
+    <string name="compare_prices_description">Before making a purchase, compare prices online or at different stores. Look for discounts, use coupons, and take advantage of sales to save money.</string>
+
+<!--    BUDGET RESULT FRAGMENT-->
+    <string name="income">Income: \n</string>
+    <string name="housing">Housing: \n</string>
+    <string name="insurance">Insurance: \n</string>
+    <string name="food">Food: \n</string>
+    <string name="other">Other: \n</string>
+    <string name="savings_result">Savings: \n</string>
+    <string name="error">404: Fragment not found"</string>
+    <string name="error_try_again">Try again :(</string>
+    <string name="total_spending">Total Spending: \n</string>
+    <string name="percent_symbol">%</string>
+
+<!--    LOAN RESULT FRAGMENT-->
+    <string name="loan_default_payment_title">Payment</string>
+    <string name="loan_yearly_payment_title">Yearly Payment</string>
+    <string name="loan_monthly_payment_title">Monthly Payment</string>
+    <string name="loan_weekly_payment_title">Weekly Payment</string>
+    <string name="loan_total_payment_title">Total Payment</string>
+    <string name="loan_total_interest_title">Total Interest</string>
+    <string name="save_button">Save</string>
+    <string name="budget_hint_text">0.00</string>
+
 </resources>

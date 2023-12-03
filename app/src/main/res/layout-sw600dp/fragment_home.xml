@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_black"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/padding_large"
+    tools:context=".Fragments.ContactFragment">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_black"
+        android:fontFamily="@font/bungee"
+        android:text="@string/title"
+        android:textAlignment="center"
+        android:textColor="@color/theme_yellow"
+        android:textSize="96sp" />
+
+    <TextView
+        android:id="@+id/greetingTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/greeting_text"
+        android:textAlignment="center"
+        android:textColor="@color/theme_white"
+        android:textSize="@dimen/text_size_72sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppins"
+        android:text="@string/home_title_text"
+        android:textAlignment="center"
+        android:textColor="@color/theme_white"
+        android:textSize="@dimen/text_size_60sp" />
+
+    <Button
+        android:id="@+id/budgetButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="@color/theme_yellow"
+        android:fontFamily="@font/poppins"
+        android:text="@string/budget_button"
+        android:textSize="@dimen/text_size_48sp" />
+
+    <Button
+        android:id="@+id/loanButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="@color/theme_yellow"
+        android:fontFamily="@font/poppins"
+        android:text="@string/loan_button"
+        android:textSize="@dimen/text_size_48sp" />
+
+    <Button
+        android:id="@+id/infoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="@color/theme_yellow"
+        android:fontFamily="@font/poppins"
+        android:text="@string/info_button"
+        android:textSize="@dimen/text_size_48sp" />
+
+</LinearLayout>

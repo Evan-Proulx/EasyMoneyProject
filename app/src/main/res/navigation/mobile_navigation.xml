@@ -2,4 +2,58 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"/>
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home">
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.easymoney.Fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.example.easymoney.Fragments.InfoFragment"
+        android:label="Money Saving Tips"
+        tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/nav_loan"
+        android:name="com.example.easymoney.Fragments.LoanCalculatorFragment"
+        android:label="Easy Loans"
+        tools:layout="@layout/fragment_loan_calculator" >
+        <action
+            android:id="@+id/action_nav_loan_to_loanResultFragment"
+            app:destination="@id/loanResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_budget"
+        android:name="com.example.easymoney.Fragments.BudgetFragment"
+        android:label="Easy Budget"
+        tools:layout="@layout/fragment_budget" >
+        <action
+            android:id="@+id/action_nav_budget_to_budgetResultFragment"
+            app:destination="@id/nav_budget_result_host" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_credits"
+        android:name="com.example.easymoney.Fragments.CreditsFragment"
+        android:label="Credits"
+        tools:layout="@layout/fragment_credits" />
+    <fragment
+        android:id="@+id/nav_budget_result_host"
+        android:name="com.example.easymoney.Fragments.BudgetResultHostFragment"
+        android:label="Easy Budget"
+        tools:layout="@layout/fragment_budget_result" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.easymoney.Fragments.SettingsFragment"
+        android:label="Settings" />
+    <fragment
+        android:id="@+id/loanResultFragment"
+        android:name="com.example.easymoney.Fragments.LoanResultFragment"
+        android:label="Easy Loans"
+        tools:layout="@layout/fragment_loan_result" />
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.example.easymoney.Fragments.ContactFragment"
+        android:label="Contact"
+        tools:layout="@layout/fragment_contact" />
+</navigation>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_black"
+    android:orientation="vertical"
+    tools:context=".Fragments.BudgetResultHostFragment">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/result_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_black"
+        app:tabIndicator="@android:color/transparent"
+        app:tabSelectedTextAppearance="@style/SelectedTabTextAppearance">
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/budgetSaveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/padding_small"
+        android:backgroundTint="@color/theme_yellow"
+        android:fontFamily="@font/poppins"
+        android:text="@string/save_button"
+        android:textColor="@color/theme_black"
+        android:textSize="@dimen/text_size_18sp"
+        app:cornerRadius="@dimen/activity_horizontal_margin"
+        app:icon="@drawable/ic_baseline_save_alt_24"
+        app:iconTint="@color/theme_black" />
+</LinearLayout>
