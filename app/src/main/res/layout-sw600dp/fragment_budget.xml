@@ -9,11 +9,11 @@
     tools:context=".Fragments.BudgetFragment">
 
 
+    <!-- BUTTON LAYOUT   -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        >
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,8 +29,7 @@
                 android:text="@string/easy_budget_title"
                 android:textAlignment="center"
                 android:textColor="@color/theme_yellow"
-                android:textSize="34sp"
-                />
+                android:textSize="@dimen/text_size_72sp" />
 
             <TextView
                 android:id="@+id/descriptionTextView"
@@ -41,7 +40,7 @@
                 android:text="@string/budget_title_text"
                 android:textAlignment="center"
                 android:textColor="@color/theme_white"
-                android:textSize="20sp" />
+                android:textSize="@dimen/text_size_48sp" />
 
             <!--    INCOME LAYOUT-->
             <LinearLayout
@@ -60,18 +59,18 @@
                     android:fontFamily="@font/poppins"
                     android:text="@string/income_month"
                     android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_36sp" />
 
                 <EditText
                     android:id="@+id/editTextIncome"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="85dp"
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:text="0.00"
                     android:textColor="@color/theme_black"
-                    />
+                    android:textSize="@dimen/text_size_36sp" />
 
             </LinearLayout>
 
@@ -92,18 +91,19 @@
                     android:fontFamily="@font/poppins"
                     android:text="@string/housing_expenses_month"
                     android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_36sp" />
 
                 <EditText
                     android:id="@+id/housingEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="85dp"
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:text="0.00"
                     android:textAlignment="textStart"
-                    android:textColor="@color/theme_black" />
+                    android:textColor="@color/theme_black"
+                    android:textSize="@dimen/text_size_36sp" />
             </LinearLayout>
 
             <!--    INSURANCE LAYOUT-->
@@ -124,18 +124,19 @@
                     android:fontFamily="@font/poppins"
                     android:text="@string/insurance_month"
                     android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_36sp" />
 
                 <EditText
                     android:id="@+id/insuranceEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="85dp"
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:text="0.00"
                     android:textAlignment="textStart"
-                    android:textColor="@color/theme_black" />
+                    android:textColor="@color/theme_black"
+                    android:textSize="@dimen/text_size_36sp" />
             </LinearLayout>
 
             <!--    FOOD LAYOUT-->
@@ -155,18 +156,19 @@
                     android:fontFamily="@font/poppins"
                     android:text="@string/food_expenses_month"
                     android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_36sp" />
 
                 <EditText
                     android:id="@+id/foodEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="85dp"
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:text="0.00"
                     android:textAlignment="textStart"
-                    android:textColor="@color/theme_black" />
+                    android:textColor="@color/theme_black"
+                    android:textSize="@dimen/text_size_36sp" />
             </LinearLayout>
 
             <!--  OTHER LAYOUT 1    -->
@@ -186,23 +188,23 @@
                     android:fontFamily="@font/poppins"
                     android:text="@string/other_expenses_month"
                     android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_36sp" />
 
                 <EditText
                     android:id="@+id/other1EditText"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="85dp"
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:text="0.00"
                     android:textAlignment="textStart"
-                    android:textColor="@color/theme_black" />
+                    android:textColor="@color/theme_black"
+                    android:textSize="@dimen/text_size_36sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
-    <!-- BUTTON LAYOUT   -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -220,7 +222,7 @@
             android:backgroundTint="#DA5B5B"
             android:fontFamily="@font/poppins"
             android:text="@string/button_reset"
-            android:textSize="16sp" />
+            android:textSize="@dimen/text_size_36sp" />
 
         <Button
             android:id="@+id/saveButton"
@@ -231,6 +233,6 @@
             android:backgroundTint="@color/theme_yellow"
             android:fontFamily="@font/poppins"
             android:text="@string/button_submit"
-            android:textSize="16sp" />
+            android:textSize="@dimen/text_size_36sp" />
     </LinearLayout>
 </LinearLayout>

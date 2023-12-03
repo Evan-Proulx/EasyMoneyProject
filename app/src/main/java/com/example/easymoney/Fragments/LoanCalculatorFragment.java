@@ -125,17 +125,23 @@ public class LoanCalculatorFragment extends Fragment {
                 double monthlyInterest;
                 int compoundsPerYear = 0;
                 double paymentTime = 0;
+                double loanAmountValue;
+                int termYearsValue;
+                int termMonthsValue;
 
                 double interestRateValue = interestRateSeek.getProgress() / 100.0;
                 //make sure values have been set before parsing string
 
-//                if (TextUtils.isEmpty(loanAmountText) || TextUtils.isEmpty(termYearsText) || TextUtils.isEmpty(termMonthsText)) {
-//                    Toast.makeText(getContext(), "You are missing values! Try Again", Toast.LENGTH_SHORT).show();
-
-//                } else {
-                    double loanAmountValue = Double.parseDouble(loanAmount.getText().toString());
-                    int termYearsValue = Integer.parseInt(termYears.getText().toString());
-                    int termMonthsValue = Integer.parseInt(termMonths.getText().toString());
+//
+                try {
+                    loanAmountValue = Double.parseDouble(loanAmount.getText().toString());
+                    termYearsValue = Integer.parseInt(termYears.getText().toString());
+                    termMonthsValue = Integer.parseInt(termMonths.getText().toString());
+                }catch (NumberFormatException e){
+                    loanAmountValue = 0;
+                    termYearsValue = 0;
+                    termMonthsValue = 0;
+                }
 
                     //Set interest based on when payments are due
                     if (paymentMonthly.isChecked()) {

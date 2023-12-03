@@ -1,12 +1,17 @@
 package com.example.easymoney.Fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.easymoney.R;
 
@@ -61,6 +66,47 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        Button budgetButton = view.findViewById(R.id.budgetButton);
+        Button loanButton = view.findViewById(R.id.loanButton);
+        Button infoButton = view.findViewById(R.id.infoButton);
+        TextView greeting = view.findViewById(R.id.greetingTextView);
+
+        //Gets the username from the settings
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String userName = preferences.getString("userName", "there!");
+        String greetingMessage = "";
+
+        //If a username is set greet them with name, otherwise use default greeting
+        if (!userName.equals("")){
+            greetingMessage = getString(R.string.greeting_text, userName);
+            greeting.setText(greetingMessage);
+        }else{
+            greetingMessage = getString(R.string.greeting_text, "there!");
+            greeting.setText(greetingMessage);
+        }
+
+        budgetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view)
+                        .navigate(R.id.nav_budget);
+            }
+        });
+        loanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view)
+                        .navigate(R.id.nav_loan);
+            }
+        });
+        infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view)
+                        .navigate(R.id.nav_info);
+            }
+        });
+        return view;
     }
 }

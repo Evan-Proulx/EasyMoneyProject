@@ -20,6 +20,7 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
     private double otherValue1;
     private double totalExpenses;
     double savings = incomeValue-totalExpenses;
+    private double savingsPercent;
     private double housingPercent;
     private double insurancePercent;
     private double foodPercent;
@@ -28,7 +29,7 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
     private Context context;
 
     public CustomViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, double incomeValue, double housingValue, double insuranceValue,
-                                  double foodValue, double otherValue1, double totalExpenses, double savings, double housingPercent, double insurancePercent,
+                                  double foodValue, double otherValue1, double totalExpenses, double savings, double savingsPercent, double housingPercent, double insurancePercent,
                                   double foodPercent, double otherValue1Percent) {
 
         super(fragmentActivity);
@@ -40,6 +41,7 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
         this.otherValue1 = otherValue1;
         this.totalExpenses = totalExpenses;
         this.savings = savings;
+        this.savingsPercent = savingsPercent;
         this.housingPercent = housingPercent;
         this.insurancePercent = insurancePercent;
         this.foodPercent = foodPercent;
@@ -53,21 +55,21 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
         String selectedCurrency = CurrencyUtil.getSelectedCurrency(context);
         String currencySymbol = CurrencyUtil.getCurrencySymbol(selectedCurrency);
 
-
-        position = position%6;
+        //Display data from budget fragment in viewPager
+        position = position %6;
         switch (position){
-            case 0: return ResultFragment.newInstance("Income: \n" + currencySymbol +incomeValue, "Total Spending: " + currencySymbol +totalExpenses);
-            case 1: return ResultFragment.newInstance("Housing: \n" + currencySymbol +housingValue,  housingPercent + "%");
-            case 2: return ResultFragment.newInstance("Insurance: \n" + currencySymbol +insuranceValue, insurancePercent + "%");
-            case 3: return ResultFragment.newInstance("Food: \n" + currencySymbol +foodValue, foodPercent + "%");
-            case 4: return ResultFragment.newInstance("Other: \n" + currencySymbol +otherValue1, otherValue1Percent + "%");
-            case 5: return ResultFragment.newInstance("Savings : \n" + savings, currencySymbol+savings);
-            default: return ResultFragment.newInstance("404: Fragment not found", "Try again :(");
+            case 0: return ResultFragment.newInstance(context.getString(R.string.income) + currencySymbol +incomeValue, context.getString(R.string.total_spending) + currencySymbol +totalExpenses);
+            case 1: return ResultFragment.newInstance(context.getString(R.string.housing) + currencySymbol +housingValue,  housingPercent + context.getString(R.string.percent_symbol));
+            case 2: return ResultFragment.newInstance(context.getString(R.string.insurance) + currencySymbol +insuranceValue, insurancePercent + context.getString(R.string.percent_symbol));
+            case 3: return ResultFragment.newInstance(context.getString(R.string.food) + currencySymbol +foodValue, foodPercent + context.getString(R.string.percent_symbol));
+            case 4: return ResultFragment.newInstance(context.getString(R.string.other) + currencySymbol +otherValue1, otherValue1Percent + context.getString(R.string.percent_symbol));
+            case 5: return ResultFragment.newInstance(context.getString(R.string.savings_result)+ currencySymbol + savings, savingsPercent + context.getString(R.string.percent_symbol));
+            default: return ResultFragment.newInstance(context.getString(R.string.error), context.getString(R.string.error_try_again));
         }
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 6;
     }
 }

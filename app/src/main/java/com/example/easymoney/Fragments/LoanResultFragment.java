@@ -81,10 +81,9 @@ public class LoanResultFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_loan_result, container, false);
 
 
-        String paymentTitle = "Payment";
-        String totalPaymentTitle = "Total Payment";
-        String totalInterestTitle = "total interest";
-        String payment;
+        String paymentTitle = getString(R.string.loan_default_payment_title);
+        String totalPaymentTitle = getString(R.string.loan_total_payment_title);
+        String totalInterestTitle = getString(R.string.loan_total_interest_title);
         String totalPayment;
         String totalInterest;
 
@@ -100,9 +99,9 @@ public class LoanResultFragment extends Fragment {
 
         //checks what payment time was selected and changes text
         switch ((int) paymentTime){
-            case 1: paymentTitle = "Monthly Payments";break;
-            case 2: paymentTitle = "Weekly Payments";break;
-            case 3: paymentTitle = "Yearly Payments";break;
+            case 1: paymentTitle = getString(R.string.loan_monthly_payment_title);break;
+            case 2: paymentTitle = getString(R.string.loan_weekly_payment_title);break;
+            case 3: paymentTitle = getString(R.string.loan_yearly_payment_title);break;
         }
 
         ArrayList<ListItem> listItems = new ArrayList<>();

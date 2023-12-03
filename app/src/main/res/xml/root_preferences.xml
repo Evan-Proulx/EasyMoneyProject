@@ -21,4 +21,12 @@
             android:icon="@drawable/ic_baseline_animation_24"/>
 
 
+        <EditTextPreference
+            android:key="userName"
+            android:title="User Name"
+            android:summary="Enter your name"
+            android:inputType="text"
+            android:icon="@drawable/ic_baseline_drive_file_rename_outline_24"/>
+
+
 </PreferenceScreen>

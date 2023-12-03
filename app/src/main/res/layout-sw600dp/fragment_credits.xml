@@ -9,15 +9,15 @@
     tools:context=".Fragments.LoanResultFragment">
 
     <TextView
-    android:id="@+id/titleText"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/theme_black"
-    android:fontFamily="@font/bungee"
-    android:text="@string/title"
-    android:textAlignment="center"
-    android:textColor="@color/theme_yellow"
-    android:textSize="@dimen/text_size_36sp" />
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_black"
+        android:fontFamily="@font/bungee"
+        android:text="@string/title"
+        android:textAlignment="center"
+        android:textColor="@color/theme_yellow"
+        android:textSize="@dimen/text_size_72sp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -28,6 +28,6 @@
         android:text="@string/credit_text"
         android:textAlignment="center"
         android:textColor="@color/theme_white"
-        android:textSize="@dimen/text_size_24sp" />
+        android:textSize="@dimen/text_size_60sp" />
 
 </LinearLayout>

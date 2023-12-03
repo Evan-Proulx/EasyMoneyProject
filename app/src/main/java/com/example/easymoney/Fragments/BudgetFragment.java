@@ -2,10 +2,8 @@ package com.example.easymoney.Fragments;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
@@ -18,8 +16,6 @@ import android.widget.TextView;
 
 import com.example.easymoney.R;
 import com.example.easymoney.SharedViewModel;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -93,7 +89,7 @@ public class BudgetFragment extends Fragment {
         EditText foodEditText = view.findViewById(R.id.foodEditText);
         EditText other1EditText = view.findViewById(R.id.other1EditText);
         Button resetBtn = view.findViewById(R.id.resetBtn);
-        Button submitBtn = view.findViewById(R.id.submitBtn);
+        Button submitBtn = view.findViewById(R.id.saveButton);
 
 
         //reset editText text
