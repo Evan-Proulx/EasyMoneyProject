@@ -84,12 +84,11 @@ public class BudgetResultHostFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_budget_result, container, false);
         String selectedCurrency = CurrencyUtil.getSelectedCurrency(requireContext());
         String currencySymbol = CurrencyUtil.getCurrencySymbol(selectedCurrency);
 
-
+        //Format data from the sharedViewModel
         ArrayList<Double> receivedData = receiveDataFromFragment();
         ArrayList<Double> formattedData = new ArrayList<>();
         for (double data : receivedData){
@@ -108,7 +107,6 @@ public class BudgetResultHostFragment extends Fragment {
         double insurancePercent = findPercent(insuranceValue,incomeValue);
         double foodPercent = findPercent(foodValue,incomeValue);
         double otherValue1Percent = findPercent(otherValue1,incomeValue);
-
 
         viewPager2 = view.findViewById(R.id.viewpager);
         viewPager2.setAdapter(new CustomViewPagerAdapter(getActivity(), incomeValue, housingValue, insuranceValue, foodValue,
@@ -147,14 +145,14 @@ public class BudgetResultHostFragment extends Fragment {
         
         return view;
     }
+
+    //create the tabLayout
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         TabLayout tabLayout = view.findViewById(R.id.result_tab_layout);
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) ->
                 tab.setText(("\u25CF"))).attach();
-
-
     }
 
     //gets data sent from the budgetFragment

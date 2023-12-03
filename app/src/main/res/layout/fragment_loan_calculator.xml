@@ -80,25 +80,27 @@
                         android:id="@+id/yearEditText"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:background="@drawable/edit_text_style"
                         android:layout_weight="1"
+                        android:background="@drawable/edit_text_style"
                         android:ems="10"
+                        android:hint="Years"
                         android:inputType="numberDecimal"
                         android:textAlignment="textStart"
                         android:textColor="@color/theme_black"
-                        android:hint="Years"/>
+                        android:textColorHint="@color/theme_black" />
 
                     <EditText
                         android:id="@+id/monthEditText"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:background="@drawable/edit_text_style"
                         android:layout_weight="1"
+                        android:background="@drawable/edit_text_style"
                         android:ems="10"
+                        android:hint="Months"
                         android:inputType="numberDecimal"
                         android:textAlignment="textStart"
                         android:textColor="@color/theme_black"
-                        android:hint="Months"/>
+                        android:textColorHint="@color/theme_black" />
                 </LinearLayout>
             </LinearLayout>
 
