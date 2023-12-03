@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.easymoney.R;
 import com.example.easymoney.SharedViewModel;
@@ -76,13 +77,6 @@ public class BudgetFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_budget, container, false);
 
-        TextView titleText = view.findViewById(R.id.titleText);
-        TextView incomeTextView = view.findViewById(R.id.incomeTextView);
-        TextView housingTextView = view.findViewById(R.id.housingTextView);
-        TextView insuranceTextView = view.findViewById(R.id.insuranceTextView);
-        TextView foodTextView = view.findViewById(R.id.foodTextView);
-        TextView other1TextView = view.findViewById(R.id.other1TextView);
-
         EditText incomeEditText = view.findViewById(R.id.editTextIncome);
         EditText housingEditText = view.findViewById(R.id.housingEditText);
         EditText insuranceEditText = view.findViewById(R.id.insuranceEditText);
@@ -108,25 +102,38 @@ public class BudgetFragment extends Fragment {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double incomeValue = Double.parseDouble(incomeEditText.getText().toString());
-                double housingValue = Double.parseDouble(housingEditText.getText().toString());
-                double insuranceValue = Double.parseDouble(insuranceEditText.getText().toString());
-                double foodValue = Double.parseDouble(foodEditText.getText().toString());
-                double other1Value = Double.parseDouble(other1EditText.getText().toString());
-                double totalExpenses = housingValue + insuranceValue + foodValue + other1Value;
+                double incomeValue;
+                double housingValue;
+                double insuranceValue;
+                double foodValue;
+                double other1Value;
+                double totalExpenses;
 
-                //Add edit text values to arraylist
-                ArrayList<Double> values = new ArrayList<>();
-                values.add(incomeValue);
-                values.add(housingValue);
-                values.add(insuranceValue);
-                values.add(foodValue);
-                values.add(other1Value);
-                values.add(totalExpenses);
+                //Try to execute code, if not all values are set display toast
+                try {
+                    incomeValue = Double.parseDouble(incomeEditText.getText().toString());
+                    housingValue = Double.parseDouble(housingEditText.getText().toString());
+                    insuranceValue = Double.parseDouble(insuranceEditText.getText().toString());
+                    foodValue = Double.parseDouble(foodEditText.getText().toString());
+                    other1Value = Double.parseDouble(other1EditText.getText().toString());
+                    totalExpenses = housingValue + insuranceValue + foodValue + other1Value;
 
-                sendDataToFragment(values);
-                Navigation.findNavController(view)
-                        .navigate(R.id.action_nav_budget_to_budgetResultFragment);
+                    //Add edit text values to arraylist
+                    ArrayList<Double> values = new ArrayList<>();
+                    values.add(incomeValue);
+                    values.add(housingValue);
+                    values.add(insuranceValue);
+                    values.add(foodValue);
+                    values.add(other1Value);
+                    values.add(totalExpenses);
+
+                    sendDataToFragment(values);
+                    Navigation.findNavController(view)
+                            .navigate(R.id.action_nav_budget_to_budgetResultFragment);
+                }catch (Exception e){
+                    Toast.makeText(getContext(), "Please fill all text fields!", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

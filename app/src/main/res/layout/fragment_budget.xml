@@ -69,7 +69,7 @@
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="0.00"
+                    android:hint="@string/budget_hint_text"
                     android:textColor="@color/theme_black"
                     />
 
@@ -101,7 +101,7 @@
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="0.00"
+                    android:hint="@string/budget_hint_text"
                     android:textAlignment="textStart"
                     android:textColor="@color/theme_black" />
             </LinearLayout>
@@ -133,7 +133,7 @@
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="0.00"
+                    android:hint="@string/budget_hint_text"
                     android:textAlignment="textStart"
                     android:textColor="@color/theme_black" />
             </LinearLayout>
@@ -164,7 +164,7 @@
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="0.00"
+                    android:hint="@string/budget_hint_text"
                     android:textAlignment="textStart"
                     android:textColor="@color/theme_black" />
             </LinearLayout>
@@ -195,7 +195,7 @@
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="0.00"
+                    android:hint="@string/budget_hint_text"
                     android:textAlignment="textStart"
                     android:textColor="@color/theme_black" />
             </LinearLayout>

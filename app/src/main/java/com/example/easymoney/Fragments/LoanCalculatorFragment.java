@@ -76,7 +76,6 @@ public class LoanCalculatorFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_loan_calculator, container, false);
 
         EditText loanAmount = view.findViewById(R.id.amountEditText);
@@ -85,8 +84,6 @@ public class LoanCalculatorFragment extends Fragment {
         TextView interestRatePercent = view.findViewById(R.id.interestRatePercentTextView);
         SeekBar interestRateSeek = view.findViewById(R.id.interestSeekBar);
 
-        RadioGroup paymentTimeRadioGroup = view.findViewById(R.id.paymentTimeRadioGroup);
-        RadioGroup compoundRadioGroup = view.findViewById(R.id.compoundRadioGroup);
         RadioButton paymentWeekly = view.findViewById(R.id.paymentRadioWeekly);
         RadioButton paymentMonthly = view.findViewById(R.id.paymentRadioMonthly);
         RadioButton paymentAnnual = view.findViewById(R.id.paymentRadioAnnual);
@@ -94,26 +91,18 @@ public class LoanCalculatorFragment extends Fragment {
         RadioButton compoundMonthly = view.findViewById(R.id.compoundRadioMonthly);
         RadioButton compoundAnnual = view.findViewById(R.id.compoundRadioAnnual);
 
-        String loanAmountText = loanAmount.getText().toString().trim();
-        String termYearsText = termYears.getText().toString().trim();
-        String termMonthsText = termMonths.getText().toString().trim();
-
-
         interestRateSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 interestRatePercent.setText(String.valueOf(i) + "%");
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-
 
         //get number values
         Button submitButton = view.findViewById(R.id.loanSubmitBtn);
@@ -123,25 +112,19 @@ public class LoanCalculatorFragment extends Fragment {
             public void onClick(View view) {
                 int numOfPayments;
                 double monthlyInterest;
-                int compoundsPerYear = 0;
-                double paymentTime = 0;
+                int compoundsPerYear;
+                double paymentTime;
                 double loanAmountValue;
                 int termYearsValue;
                 int termMonthsValue;
-
                 double interestRateValue = interestRateSeek.getProgress() / 100.0;
-                //make sure values have been set before parsing string
 
-//
+                //make sure values have been set before parsing string
+                //If they are not set we display a toast
                 try {
                     loanAmountValue = Double.parseDouble(loanAmount.getText().toString());
                     termYearsValue = Integer.parseInt(termYears.getText().toString());
                     termMonthsValue = Integer.parseInt(termMonths.getText().toString());
-                }catch (NumberFormatException e){
-                    loanAmountValue = 0;
-                    termYearsValue = 0;
-                    termMonthsValue = 0;
-                }
 
                     //Set interest based on when payments are due
                     if (paymentMonthly.isChecked()) {
@@ -188,6 +171,7 @@ public class LoanCalculatorFragment extends Fragment {
                             "totalinterest: " + totalInterest);
 
 
+                    //Add values to arraylist to send in sharedViewModel
                     ArrayList<Double> values = new ArrayList<>();
                     values.add(calculatedInterestRate);
                     values.add(calculatedPayment);
@@ -204,7 +188,9 @@ public class LoanCalculatorFragment extends Fragment {
 
                     Navigation.findNavController(view)
                             .navigate(R.id.action_nav_loan_to_loanResultFragment);
-
+                }catch (Exception e){
+                    Toast.makeText(getContext(), "Please fill all text fields!", Toast.LENGTH_SHORT).show();
+                }
                 }
         });
 

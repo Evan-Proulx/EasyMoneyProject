@@ -102,5 +102,6 @@
     <string name="loan_total_payment_title">Total Payment</string>
     <string name="loan_total_interest_title">Total Interest</string>
     <string name="save_button">Save</string>
+    <string name="budget_hint_text">0.00</string>
 
 </resources>
