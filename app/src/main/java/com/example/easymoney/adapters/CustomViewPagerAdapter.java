@@ -1,5 +1,5 @@
 
-package com.example.easymoney;
+package com.example.easymoney.adapters;
 
 import android.content.Context;
 
@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.easymoney.CurrencyUtil;
 import com.example.easymoney.Fragments.ResultFragment;
 import com.example.easymoney.Fragments.SettingsFragment;
+import com.example.easymoney.R;
 
 public class CustomViewPagerAdapter extends FragmentStateAdapter {
 

@@ -14,13 +14,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.easymoney.CurrencyUtil;
-import com.example.easymoney.CustomListViewAdapter;
 import com.example.easymoney.ListItem;
 import com.example.easymoney.R;
 import com.example.easymoney.SharedViewModel;
+import com.example.easymoney.adapters.CustomListViewAdapter;
 
 import java.util.ArrayList;
 

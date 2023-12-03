@@ -154,7 +154,7 @@ public class LoanCalculatorFragment extends Fragment {
 
                     } else {
                         compoundsPerYear = 1;
-                        System.out.println("eyarlye checked");
+                        System.out.println("yearly checked");
                     }
 
                     double calculatedInterestRate = interestRateValue / compoundsPerYear;
@@ -168,7 +168,7 @@ public class LoanCalculatorFragment extends Fragment {
                     System.out.println("Your interest rate: " + calculatedInterestRate + "\n" +
                             "Your payment: " + calculatedPayment + "\n" +
                             "total payment: " + totalPayment + "\n" +
-                            "totalinterest: " + totalInterest);
+                            "totalInterest: " + totalInterest);
 
 
                     //Add values to arraylist to send in sharedViewModel

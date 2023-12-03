@@ -1,11 +1,8 @@
 package com.example.easymoney.Fragments;
 
-import android.app.LauncherActivity;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.easymoney.CustomRecyclerViewAdapter;
 import com.example.easymoney.ListItem;
 import com.example.easymoney.R;
+import com.example.easymoney.adapters.CustomRecyclerViewAdapter;
 
 import java.util.ArrayList;
 
@@ -74,10 +71,10 @@ public class InfoFragment extends Fragment {
 
         ArrayList<ListItem> listItems = new ArrayList<>();
         listItems.add(new ListItem(getString(R.string.create_budget_title), getString(R.string.create_budget_description)));
-        listItems.add(new ListItem(getString(R.string.emergency_fund_title), getString(R.string.emergency_fund_description)));
+        listItems.add(new ListItem(getString(R.string.prepare_emergency_title), getString(R.string.prepare_emergency_description)));
         listItems.add(new ListItem(getString(R.string.track_spending_title), getString(R.string.track_spending_description)));
         listItems.add(new ListItem(getString(R.string.prioritize_saving_title), getString(R.string.prioritize_saving_description)));
-        listItems.add(new ListItem(getString(R.string.automate_savings_title), getString(R.string.automate_savings_description)));
+        listItems.add(new ListItem(getString(R.string.cook_at_home_title), getString(R.string.cook_at_home_description)));
         listItems.add(new ListItem(getString(R.string.cut_expenses_title), getString(R.string.cut_expenses_description)));
         listItems.add(new ListItem(getString(R.string.compare_prices_title), getString(R.string.compare_prices_description)));
 
@@ -86,7 +83,6 @@ public class InfoFragment extends Fragment {
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
 
         return view;
     }

@@ -1,4 +1,4 @@
-package com.example.easymoney;
+package com.example.easymoney.adapters;
 
 import android.app.LauncherActivity;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.easymoney.ListItem;
+import com.example.easymoney.R;
 
 import org.w3c.dom.Text;
 

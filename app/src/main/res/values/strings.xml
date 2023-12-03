@@ -29,13 +29,13 @@
 
 
     <string name="currency_format">%s</string>
-
+<!--    HOME FRAGMENT-->
     <string name="title">Ea$y Money</string>
     <string name="home_title_text">Welcome ot the easy money app, where we help you save money, Easy!</string>
-    <string name="home_button_text">Get Started</string>
+
+<!--    BUDGET FRAGMENT -->
     <string name="easy_budget_title">Ea$y Budget</string>
     <string name="budget_title_text">Create a budget! Enter your monthly income and expenses to begin.</string>
-
     <string name="income_month">Income/month</string>
     <string name="housing_expenses_month">Housing Expenses/month</string>
     <string name="insurance_month">Insurance/month</string>
@@ -62,25 +62,25 @@
 
 <!--    INFO FRAGMENT    -->
     <string name="create_budget_title">Create a Budget</string>
-    <string name="create_budget_description">Make a detailed budget that outlines your monthly income and expenses. Categorize your spending to identify areas where you can cut back.</string>
-
-    <string name="emergency_fund_title">Emergency Fund</string>
-    <string name="emergency_fund_description">Make a detailed budget that outlines your monthly income and expenses. Categorize your spending to identify areas where you can cut back.</string>
+    <string name="create_budget_description">Make a detailed budget that outlines your monthly income and expenses. Identify areas where you can cut back spending</string>
 
     <string name="track_spending_title">Track Your Spending</string>
-    <string name="track_spending_description">Keep track of every expense, no matter how small. This will help you identify areas where you can cut back and ensure you stay within your budget.</string>
+    <string name="track_spending_description">Keep track of every expense, even small purchases. This will help you identify areas where you can cut back on spending to stay within your budget</string>
 
     <string name="prioritize_saving_title">Prioritize Saving</string>
-    <string name="prioritize_saving_description">Treat saving as a non-negotiable expense. Set aside a portion of your income each month for savings before spending on other discretionary items.</string>
-
-    <string name="automate_savings_title">Automate Savings</string>
-    <string name="automate_savings_description">Set up automatic transfers to your savings account. This makes saving a habit and ensures that you consistently contribute to your savings goals.</string>
+    <string name="prioritize_saving_description">Treat saving as a non-negotiable expense. Set aside a portion of your income each month for savings before spending on items you don\'t necessarily need.</string>
 
     <string name="cut_expenses_title">Cut Unnecessary Expenses</string>
     <string name="cut_expenses_description">Identify and eliminate unnecessary expenses. Evaluate your subscriptions, dining out, and impulse purchases. Small savings can add up over time.</string>
 
-    <string name="compare_prices_title">Compare Prices</string>
-    <string name="compare_prices_description">Before making a purchase, compare prices online or at different stores. Look for discounts, use coupons, and take advantage of sales to save money.</string>
+    <string name="compare_prices_title">Compare Prices and Buy On Sale</string>
+    <string name="compare_prices_description">Before making a purchase, compare prices online or at other stores. Look for discounts and take advantage of sales whenever possible</string>
+
+    <string name="cook_at_home_title">Cook at Home</string>
+    <string name="cook_at_home_description">Eating at restaurants regularly can be expensive. Not only is Eating at home cheaper, but it is often more healthy too.</string>
+
+    <string name="prepare_emergency_title">Prepare for Emergency Expenses</string>
+    <string name="prepare_emergency_description">Sometimes you will have expenses you didn\'t expect to pay, like a car repair or medical bill. Set aside as much money as possible for unexpected circumstances.</string>
 
 <!--    BUDGET RESULT FRAGMENT-->
     <string name="income">Income: \n</string>
