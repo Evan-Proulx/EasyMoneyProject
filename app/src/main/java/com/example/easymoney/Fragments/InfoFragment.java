@@ -73,13 +73,13 @@ public class InfoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
 
         ArrayList<ListItem> listItems = new ArrayList<>();
-        listItems.add(new ListItem("Create a Budget","Make a detailed budget that outlines your monthly income and expenses. Categorize your spending to identify areas where you can cut back."));
-        listItems.add(new ListItem("Emergency Fund","Make a detailed budget that outlines your monthly income and expenses. Categorize your spending to identify areas where you can cut back."));
-        listItems.add(new ListItem("Track Your Spending","Keep track of every expense, no matter how small. This will help you identify areas where you can cut back and ensure you stay within your budget.\n"));
-        listItems.add(new ListItem("Prioritize Saving","Treat saving as a non-negotiable expense. Set aside a portion of your income each month for savings before spending on other discretionary items.\n"));
-        listItems.add(new ListItem("Automate Savings","Set up automatic transfers to your savings account. This makes saving a habit and ensures that you consistently contribute to your savings goals.\n"));
-        listItems.add(new ListItem("Cut Unnecessary Expenses","Identify and eliminate unnecessary expenses. Evaluate your subscriptions, dining out, and impulse purchases. Small savings can add up over time.\n"));
-        listItems.add(new ListItem("Compare Prices","Before making a purchase, compare prices online or at different stores. Look for discounts, use coupons, and take advantage of sales to save money.\n"));
+        listItems.add(new ListItem(getString(R.string.create_budget_title), getString(R.string.create_budget_description)));
+        listItems.add(new ListItem(getString(R.string.emergency_fund_title), getString(R.string.emergency_fund_description)));
+        listItems.add(new ListItem(getString(R.string.track_spending_title), getString(R.string.track_spending_description)));
+        listItems.add(new ListItem(getString(R.string.prioritize_saving_title), getString(R.string.prioritize_saving_description)));
+        listItems.add(new ListItem(getString(R.string.automate_savings_title), getString(R.string.automate_savings_description)));
+        listItems.add(new ListItem(getString(R.string.cut_expenses_title), getString(R.string.cut_expenses_description)));
+        listItems.add(new ListItem(getString(R.string.compare_prices_title), getString(R.string.compare_prices_description)));
 
         RecyclerView recyclerView = view.findViewById(R.id.recycle);
         CustomRecyclerViewAdapter adapter = new CustomRecyclerViewAdapter(listItems);

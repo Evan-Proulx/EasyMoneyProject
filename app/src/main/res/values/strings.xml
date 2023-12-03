@@ -60,4 +60,48 @@
     <string name="credit_text">Made by Evan Proulx</string>
 
 
+<!--    INFO FRAGMENT    -->
+    <string name="create_budget_title">Create a Budget</string>
+    <string name="create_budget_description">Make a detailed budget that outlines your monthly income and expenses. Categorize your spending to identify areas where you can cut back.</string>
+
+    <string name="emergency_fund_title">Emergency Fund</string>
+    <string name="emergency_fund_description">Make a detailed budget that outlines your monthly income and expenses. Categorize your spending to identify areas where you can cut back.</string>
+
+    <string name="track_spending_title">Track Your Spending</string>
+    <string name="track_spending_description">Keep track of every expense, no matter how small. This will help you identify areas where you can cut back and ensure you stay within your budget.</string>
+
+    <string name="prioritize_saving_title">Prioritize Saving</string>
+    <string name="prioritize_saving_description">Treat saving as a non-negotiable expense. Set aside a portion of your income each month for savings before spending on other discretionary items.</string>
+
+    <string name="automate_savings_title">Automate Savings</string>
+    <string name="automate_savings_description">Set up automatic transfers to your savings account. This makes saving a habit and ensures that you consistently contribute to your savings goals.</string>
+
+    <string name="cut_expenses_title">Cut Unnecessary Expenses</string>
+    <string name="cut_expenses_description">Identify and eliminate unnecessary expenses. Evaluate your subscriptions, dining out, and impulse purchases. Small savings can add up over time.</string>
+
+    <string name="compare_prices_title">Compare Prices</string>
+    <string name="compare_prices_description">Before making a purchase, compare prices online or at different stores. Look for discounts, use coupons, and take advantage of sales to save money.</string>
+
+<!--    BUDGET RESULT FRAGMENT-->
+    <string name="income">Income: \n</string>
+    <string name="housing">Housing: \n</string>
+    <string name="insurance">Insurance: \n</string>
+    <string name="food">Food: \n</string>
+    <string name="other">Other: \n</string>
+    <string name="savings_result">Savings: \n</string>
+    <string name="error">404: Fragment not found"</string>
+    <string name="error_try_again">Try again :(</string>
+    <string name="total_spending">Total Spending:  </string>
+    <string name="percent_symbol">%</string>
+
+<!--    LOAN RESULT FRAGMENT-->
+    <string name="loan_default_payment_title">Payment</string>
+    <string name="loan_yearly_payment_title">Yearly Payment</string>
+    <string name="loan_monthly_payment_title">Monthly Payment</string>
+    <string name="loan_weekly_payment_title">Weekly Payment</string>
+    <string name="loan_total_payment_title">Total Payment</string>
+    <string name="loan_total_interest_title">Total Interest</string>
+
+
+
 </resources>
