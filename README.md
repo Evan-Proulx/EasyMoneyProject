@@ -1,6 +1,6 @@
 
 # Easy Money
-A mobile app aimed at saving YOU money.
+A mobile app aimed at saving you money.
 
 
 ## Authors
@@ -11,12 +11,12 @@ A mobile app aimed at saving YOU money.
 ## Features
 
 - Loan Calculator
-- Budgeter
+- Budget Calculator
 - Tips on saving money
-- Dynamic currency
+- Easily change currency
 
 
-## Budgeter
+## Budget Calculator
 
 Input your income and spending habits and we'll calculate how much you're saving!
 
