@@ -225,7 +225,7 @@
             android:textSize="@dimen/text_size_36sp" />
 
         <Button
-            android:id="@+id/submitBtn"
+            android:id="@+id/saveButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"

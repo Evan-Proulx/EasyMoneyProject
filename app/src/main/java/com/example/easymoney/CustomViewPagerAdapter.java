@@ -20,6 +20,7 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
     private double otherValue1;
     private double totalExpenses;
     double savings = incomeValue-totalExpenses;
+    private double savingsPercent;
     private double housingPercent;
     private double insurancePercent;
     private double foodPercent;
@@ -28,7 +29,7 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
     private Context context;
 
     public CustomViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, double incomeValue, double housingValue, double insuranceValue,
-                                  double foodValue, double otherValue1, double totalExpenses, double savings, double housingPercent, double insurancePercent,
+                                  double foodValue, double otherValue1, double totalExpenses, double savings, double savingsPercent, double housingPercent, double insurancePercent,
                                   double foodPercent, double otherValue1Percent) {
 
         super(fragmentActivity);
@@ -40,6 +41,7 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
         this.otherValue1 = otherValue1;
         this.totalExpenses = totalExpenses;
         this.savings = savings;
+        this.savingsPercent = savingsPercent;
         this.housingPercent = housingPercent;
         this.insurancePercent = insurancePercent;
         this.foodPercent = foodPercent;
@@ -61,8 +63,8 @@ public class CustomViewPagerAdapter extends FragmentStateAdapter {
             case 2: return ResultFragment.newInstance(context.getString(R.string.insurance) + currencySymbol +insuranceValue, insurancePercent + context.getString(R.string.percent_symbol));
             case 3: return ResultFragment.newInstance(context.getString(R.string.food) + currencySymbol +foodValue, foodPercent + context.getString(R.string.percent_symbol));
             case 4: return ResultFragment.newInstance(context.getString(R.string.other) + currencySymbol +otherValue1, otherValue1Percent + context.getString(R.string.percent_symbol));
-            case 5: return ResultFragment.newInstance(context.getString(R.string.savings_result)+ savings, currencySymbol+savings);
-            default: return ResultFragment.newInstance(context.getString(R.string.error), context.getString(R.string.error_tryagain));
+            case 5: return ResultFragment.newInstance(context.getString(R.string.savings_result)+ currencySymbol + savings, savingsPercent + context.getString(R.string.percent_symbol));
+            default: return ResultFragment.newInstance(context.getString(R.string.error), context.getString(R.string.error_try_again));
         }
     }
 

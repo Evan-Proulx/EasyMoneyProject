@@ -91,7 +91,7 @@
     <string name="savings_result">Savings: \n</string>
     <string name="error">404: Fragment not found"</string>
     <string name="error_try_again">Try again :(</string>
-    <string name="total_spending">Total Spending:  </string>
+    <string name="total_spending">Total Spending: \n</string>
     <string name="percent_symbol">%</string>
 
 <!--    LOAN RESULT FRAGMENT-->
@@ -101,7 +101,6 @@
     <string name="loan_weekly_payment_title">Weekly Payment</string>
     <string name="loan_total_payment_title">Total Payment</string>
     <string name="loan_total_interest_title">Total Interest</string>
-
-
+    <string name="save_button">Save</string>
 
 </resources>

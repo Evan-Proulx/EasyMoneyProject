@@ -1,5 +1,6 @@
 package com.example.easymoney.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.easymoney.CurrencyUtil;
 import com.example.easymoney.CustomViewPagerAdapter;
@@ -101,6 +103,7 @@ public class BudgetResultHostFragment extends Fragment {
         double otherValue1 = formattedData.get(4);
         double totalExpenses = formattedData.get(5);
         double savings = incomeValue-totalExpenses;
+        double savingsPercent = findPercent(savings, incomeValue);
         double housingPercent = findPercent(housingValue,incomeValue);
         double insurancePercent = findPercent(insuranceValue,incomeValue);
         double foodPercent = findPercent(foodValue,incomeValue);
@@ -109,8 +112,38 @@ public class BudgetResultHostFragment extends Fragment {
 
         viewPager2 = view.findViewById(R.id.viewpager);
         viewPager2.setAdapter(new CustomViewPagerAdapter(getActivity(), incomeValue, housingValue, insuranceValue, foodValue,
-                otherValue1,totalExpenses, savings, housingPercent, insurancePercent,
+                otherValue1,totalExpenses, savings, savingsPercent, housingPercent, insurancePercent,
                 foodPercent, otherValue1Percent));
+
+        Button saveButton = view.findViewById(R.id.budgetSaveBtn);
+        //This is all the data in the viewPagerAdapter formatted to fit in one string
+        //This string is used in note intent
+        String budgetToString = getString(R.string.income) + currencySymbol + incomeValue + "\n\n" +
+                getString(R.string.total_spending) + currencySymbol +totalExpenses +
+                "\n\n" + getString(R.string.housing) + currencySymbol +housingValue + " / " + housingPercent + getString(R.string.percent_symbol) +
+                "\n\n" + getString(R.string.insurance) + currencySymbol +insuranceValue + " / " + insurancePercent + getString(R.string.percent_symbol) +
+                "\n\n" + getString(R.string.food) + currencySymbol +foodValue + " / " + foodPercent + getString(R.string.percent_symbol) +
+                "\n\n" + getString(R.string.other) + currencySymbol +otherValue1 + " / " + otherValue1Percent + getString(R.string.percent_symbol) +
+                "\n\n" + getString(R.string.savings_result) + currencySymbol+savings + savingsPercent+getString(R.string.percent_symbol);
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_SUBJECT, "Budget");
+                i.putExtra(Intent.EXTRA_TEXT, budgetToString);
+
+                Intent chooser = Intent.createChooser(i, "Choose a note app:");
+                try {
+                    startActivity(chooser);
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(getContext(),
+                            "No Valid Application Installed",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
         
         return view;
     }
@@ -120,6 +153,8 @@ public class BudgetResultHostFragment extends Fragment {
         TabLayout tabLayout = view.findViewById(R.id.result_tab_layout);
         new TabLayoutMediator(tabLayout, viewPager2, (tab, position) ->
                 tab.setText(("\u25CF"))).attach();
+
+
     }
 
     //gets data sent from the budgetFragment
