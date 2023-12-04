@@ -12,7 +12,7 @@
         <item
             android:id="@+id/nav_info"
             android:icon="@drawable/ic_baseline_info_24"
-            android:title="Info" />
+            android:title="Tips" />
         <item
             android:id="@+id/nav_loan"
             android:icon="@drawable/ic_baseline_calculate_24"
@@ -22,13 +22,12 @@
             android:icon="@drawable/ic_baseline_attach_money_24"
             android:title="Budget" />
         <item
-            android:id="@+id/nav_credits"
-            android:icon="@drawable/ic_baseline_groups_24"
-            android:title="Credits" />
-
-        <item
             android:id="@+id/nav_contact"
             android:icon="@drawable/ic_baseline_contact_support_24"
             android:title="Contact" />
+        <item
+            android:id="@+id/nav_credits"
+            android:icon="@drawable/ic_baseline_groups_24"
+            android:title="Credits" />
     </group>
 </menu>

@@ -1,4 +1,4 @@
-package com.example.easymoney;
+package com.example.easymoney.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.example.easymoney.ListItem;
+import com.example.easymoney.R;
 
 import java.util.List;
 

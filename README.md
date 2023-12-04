@@ -1,6 +1,9 @@
 
 # Easy Money
-A mobile app aimed at saving you money.
+Welcome to Easy Money, an app designed to save YOU money. Create a budget, track your expenses, calculate loans, 
+and receive financial advice - all in one place! Easy Money aims to motivate users to achieve their financial goals by 
+taking control of their finances and making better spending decisions.
+
 
 
 ## Authors

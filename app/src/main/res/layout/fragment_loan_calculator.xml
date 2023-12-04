@@ -18,14 +18,14 @@
                 android:text="Ea$y Loan"
                 android:textAlignment="center"
                 android:textColor="@color/theme_yellow"
-                android:textSize="34sp" />
+                android:textSize="@dimen/text_size_36sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="70dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_horizontal"
+                android:layout_marginTop="@dimen/padding_small"
+                android:layout_marginBottom="@dimen/padding_small"
                 android:orientation="vertical"
                 android:textAlignment="center">
 
@@ -36,19 +36,18 @@
                     android:fontFamily="@font/poppins"
                     android:text="Loan Amount"
                     android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_18sp" />
 
                 <EditText
                     android:id="@+id/amountEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="@dimen/edittext_height"
                     android:background="@drawable/edit_text_style"
                     android:ems="10"
+                    android:hint="$0.00"
                     android:inputType="numberDecimal"
                     android:text="5000.00"
-                    android:hint="$0.00"
-                    android:textColor="@color/theme_black"
-                    />
+                    android:textColor="@color/theme_black" />
 
             </LinearLayout>
 
@@ -56,9 +55,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="70dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_horizontal"
+                android:layout_marginTop="@dimen/padding_small"
+                android:layout_marginBottom="@dimen/padding_small"
                 android:orientation="vertical"
                 android:textAlignment="center">
 
@@ -69,7 +68,7 @@
                     android:fontFamily="@font/poppins"
                     android:text="Term"
                     android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_18sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -79,7 +78,7 @@
                     <EditText
                         android:id="@+id/yearEditText"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/edittext_height"
                         android:layout_weight="1"
                         android:background="@drawable/edit_text_style"
                         android:ems="10"
@@ -92,7 +91,8 @@
                     <EditText
                         android:id="@+id/monthEditText"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/edittext_height"
+                        android:layout_marginStart="@dimen/padding_small"
                         android:layout_weight="1"
                         android:background="@drawable/edit_text_style"
                         android:ems="10"
@@ -108,9 +108,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="70dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_horizontal"
+                android:layout_marginTop="@dimen/padding_small"
+                android:layout_marginBottom="@dimen/padding_small"
                 android:orientation="vertical"
                 android:textAlignment="center">
 
@@ -119,9 +119,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Payment Time"
+                    android:text="@string/payment_time"
                     android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_18sp" />
 
                 <RadioGroup
                     android:id="@+id/paymentTimeRadioGroup"
@@ -135,7 +135,7 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
                         android:hapticFeedbackEnabled="true"
-                        android:text="Weekly"
+                        android:text="@string/weekly"
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
@@ -144,7 +144,7 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
                         android:checked="true"
-                        android:text="Monthly"
+                        android:text="@string/monthly"
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
@@ -153,7 +153,7 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
                         android:checked="false"
-                        android:text="Annual"
+                        android:text="@string/annual"
                         android:textColor="@color/theme_white" />
 
                 </RadioGroup>
@@ -162,9 +162,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="70dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_horizontal"
+                android:layout_marginTop="@dimen/padding_small"
+                android:layout_marginBottom="@dimen/padding_small"
                 android:orientation="vertical"
                 android:textAlignment="center">
 
@@ -173,9 +173,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Compound"
+                    android:text="@string/compound"
                     android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_18sp" />
 
                 <RadioGroup
                     android:id="@+id/compoundRadioGroup"
@@ -189,7 +189,7 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
                         android:checked="false"
-                        android:text="Weekly"
+                        android:text="@string/weekly"
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
@@ -198,7 +198,7 @@
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
                         android:checked="true"
-                        android:text="Monthly"
+                        android:text="@string/monthly"
                         android:textColor="@color/theme_white" />
 
                     <RadioButton
@@ -206,7 +206,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/theme_yellow"
-                        android:text="Annual"
+                        android:text="@string/annual"
                         android:textColor="@color/theme_white" />
 
                 </RadioGroup>
@@ -226,9 +226,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="Interest Rate"
+                    android:text="@string/interest_rate"
                     android:textColor="@color/theme_white"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_18sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -240,9 +240,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins"
-                        android:text="4%"
+                        android:text="@string/loan_percent_count"
                         android:textColor="@color/theme_white"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_size_18sp" />
 
                     <SeekBar
                         android:id="@+id/interestSeekBar"
@@ -265,8 +265,8 @@
 
                 android:backgroundTint="@color/theme_yellow"
                 android:fontFamily="@font/poppins"
-                android:text="Submit"
-                android:textSize="16sp" />
+                android:text="@string/button_submit"
+                android:textSize="@dimen/text_size_18sp" />
 
 
         </LinearLayout>
