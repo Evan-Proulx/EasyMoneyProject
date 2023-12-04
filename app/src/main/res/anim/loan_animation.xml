@@ -7,6 +7,5 @@
         android:toYScale="1.0"
         android:pivotX="50%"
         android:pivotY="50%"
-        android:duration="1500" />
-
+        android:duration="@android:integer/config_longAnimTime" />
 </set>

@@ -103,5 +103,12 @@
     <string name="loan_total_interest_title">Total Interest</string>
     <string name="save_button">Save</string>
     <string name="budget_hint_text">0.00</string>
+    <string name="payment_time">Payment Time</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="annual">Annual</string>
+    <string name="compound">Compound</string>
+    <string name="interest_rate">Interest Rate</string>
+    <string name="loan_percent_count">4%</string>
 
 </resources>
